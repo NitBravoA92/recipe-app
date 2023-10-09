@@ -85,6 +85,23 @@ main {
   gap: 0.5rem;
 }
 
+.form-fields-group label {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.form-field {
+  padding: 1rem;
+  border: 1px solid #bbb6b6;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.form-field:focus {
+  outline: none;
+  border: 2px solid #bdd4c4;
+}
 
 /* MEDIA QUERIES */
 @media (min-width: 768px) {
