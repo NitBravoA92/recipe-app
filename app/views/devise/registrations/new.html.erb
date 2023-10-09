@@ -9,25 +9,25 @@
 
       <div class="form-fields-group">
         <%= f.label :name %>
-        <%= f.text_field :name, autocomplete: "name", autofocus: true %>
+        <%= f.text_field :name, autocomplete: "name", autofocus: true, class: "form-field" %>
       </div>
 
       <div class="form-fields-group">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-field" %>
       </div>
 
       <div class="form-fields-group">
         <%= f.label :password %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-field" %>
       </div>
 
       <div class="form-fields-group">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-field" %>
       </div>
 
       <div class="actions">
