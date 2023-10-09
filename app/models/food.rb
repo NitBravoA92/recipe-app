@@ -6,5 +6,4 @@ class Food < ApplicationRecord
   validates :name, :measurement_unit, :price, :quantity, presence: true
   validates :name, length: { maximum: 150 }
   validates :quantity, numericality: { greater_than_or_equal_to: 0 }
-
 end

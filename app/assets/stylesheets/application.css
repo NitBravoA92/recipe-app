@@ -110,26 +110,27 @@ main {
 /* TABLE */
 .table {
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: #fff;
   border-collapse: collapse;
   border-width: 2px;
-  border-color: #F0F0F0;
+  border-color: #f0f0f0;
   border-style: solid;
-  color: #000000;
+  color: #000;
 }
 
 .table td {
-  border: 2px solid #F0F0F0;
+  border: 2px solid #f0f0f0;
 }
 
-.table td, .table th {
+.table td,
+.table th {
   padding: 1rem;
   text-align: left;
 }
 
 .table .table-header {
   background-color: #080808;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 .table .table-body tr:nth-child(odd) {
