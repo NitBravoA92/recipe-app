@@ -53,6 +53,12 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
   gem 'rspec-rails'
+
+  # Capybara, the library that allows us to interact with the browser using Ruby
+  gem 'capybara'
+
+  # The following gem is used for Capybara to interact with the browser.
+  gem 'webdrivers'
 end
 
 group :development do
@@ -65,3 +71,5 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+
+gem 'rails-controller-testing'
