@@ -13,3 +13,166 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.links-container * {
+  text-align: center;
+  background: grey;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.main_page_wrapper {
+  width: 100%;
+  padding: 1rem;
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  padding: 1rem 0;
+}
+
+.main-title {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #178635;
+  margin: 1.5rem 0;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+/* FORM */
+.form-wrapper {
+  width: 100%;
+}
+
+.form-wrapper form {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.form-fields-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.form-fields-group label {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.form-field {
+  padding: 1rem;
+  border: 1px solid #bbb6b6;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.form-field:focus {
+  outline: none;
+  border: 2px solid #bdd4c4;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 768px) {
+  .main_section {
+    padding: 1.5rem;
+  }
+
+  .form_container {
+    width: 85%;
+  }
+}
+
+@media (min-width: 998px) {
+  .main_page_wrapper {
+    max-width: 95%;
+    padding: 3rem;
+  }
+
+  .form_container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main_page_wrapper {
+    max-width: 85%;
+  }
+
+  .form-wrapper {
+    width: 75%;
+  }
+}
+
+@media (min-width: 1180px) {
+  .main_page_wrapper {
+    max-width: 75%;
+  }
+
+  .form-wrapper {
+    width: 70%;
+  }
+}
+
+.links-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.sign-button {
+  padding: 10px 20px;
+  background-color: #178635;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+}
+
+.notice,
+.alert {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.notice {
+  background-color: #178635;
+}
+
+.alert {
+  background-color: red;
+}
