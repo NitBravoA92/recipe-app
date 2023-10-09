@@ -16,7 +16,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 
- * {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -151,7 +151,6 @@ main {
   align-items: center;
   margin-top: 50px;
 }
-
 
 .sign-button {
   padding: 10px 20px;
