@@ -48,5 +48,28 @@ RSpec.describe Food, type: :model do
 
       expect(food).to_not be_valid
     end
+
+    it 'The Food should not be valid without a quantity' do
+      food.name = 'Banana'
+      food.measurement_unit = 'units'
+      food.price = 2.50
+      food.quantity = nil
+
+      expect(food).to_not be_valid
+    end
+
+    it 'The Food should not be valid if the quantity is not integer' do
+      food.name = 'Olive Oil'
+      food.measurement_unit = 'liters'
+      food.quantity = true
+
+      expect(food).to_not be_valid
+    end
+
+    it 'The Food should be valid if the quantity is greater than or equal to 0' do
+      food.quantity = 20
+
+      expect(food).to be_valid
+    end
   end
 end
