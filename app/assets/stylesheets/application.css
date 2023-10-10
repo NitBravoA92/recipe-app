@@ -65,6 +65,10 @@ main {
   text-align: center;
 }
 
+.page-content {
+  width: 100%;
+}
+
 /* FORM */
 .form-wrapper {
   width: 100%;
@@ -101,6 +105,36 @@ main {
 .form-field:focus {
   outline: none;
   border: 2px solid #bdd4c4;
+}
+
+/* TABLE */
+.table {
+  width: 100%;
+  background-color: #fff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #f0f0f0;
+  border-style: solid;
+  color: #000;
+}
+
+.table td {
+  border: 2px solid #f0f0f0;
+}
+
+.table td,
+.table th {
+  padding: 1rem;
+  text-align: left;
+}
+
+.table .table-header {
+  background-color: #080808;
+  color: #fff;
+}
+
+.table .table-body tr:nth-child(odd) {
+  background-color: #f6f6f6;
 }
 
 /* MEDIA QUERIES */
