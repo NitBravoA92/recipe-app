@@ -108,6 +108,16 @@ main {
   color: white;
 }
 
+.action-button.danger {
+  border: 1.5px solid #a61b1b;
+  color: #a61b1b;
+}
+
+.action-button.danger:hover {
+  background-color: #a61b1b;
+  color: white;
+}
+
 /* FORM */
 .form-wrapper {
   width: 100%;

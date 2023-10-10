@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!, only: %i[index new create destroy]
-  before_action :food_by_user, only: %i[index new create]
+  before_action :food_by_user, only: %i[index new create destroy]
 
   def index
     @foods = current_user.foods.all
@@ -14,6 +14,16 @@ class FoodsController < ApplicationController
     food = @food.new(food_params)
     render :new unless food.save
     flash[:notice] = 'The Food was created successfully!'
+    redirect_to foods_path
+  end
+
+  def destroy
+    food = @food.find(params[:id])
+    if food.destroy
+      flash[:notice] = 'The Food was deleted successfully!'
+    else
+      flash[:alert] = 'The Food was not deleted!'
+    end
     redirect_to foods_path
   end
 
