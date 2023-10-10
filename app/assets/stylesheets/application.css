@@ -51,6 +51,17 @@ main {
   padding: 1rem;
 }
 
+.display-flex {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.radio-buttons {
+  width: 20px;
+  accent-color: #178635;
+}
+
 .section-container {
   display: flex;
   flex-direction: column;
