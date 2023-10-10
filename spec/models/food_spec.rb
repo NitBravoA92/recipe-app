@@ -40,5 +40,13 @@ RSpec.describe Food, type: :model do
 
       expect(food).to_not be_valid
     end
+
+    it 'The Food should not be valid without a price' do
+      food.name = 'Banana'
+      food.measurement_unit = 'units'
+      food.price = nil
+
+      expect(food).to_not be_valid
+    end
   end
 end
