@@ -9,8 +9,8 @@
 				<p>By: <%= recipe.user.name %></p>
 			</div>
 			<div class="recipes-items-price">
-				<p>Total foods items: <%= recipe.recipe_foods.quantity %></p>
-				<p>Total price: <%= $recipe.total_price %></p>
+				<p>Total food items: <%= recipe.recipe_foods.first.try(:quantity) || 0 %></p>
+				<p>Total price: $<%= recipe.total_price %></p>
 			</div>
 		</div>
 	<% end %>
