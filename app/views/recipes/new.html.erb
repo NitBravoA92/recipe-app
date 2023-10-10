@@ -1,0 +1,39 @@
+<div class="section-container">
+
+  <h1 class="main-title">Create a new Recipe</h1>
+
+  <div class="form-wrapper col-2-form">
+    <%= form_with(model: @recipe, url: recipes_path) do |f| %>
+      <div class="form-fields-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, required: true, class: 'form-field' %>
+      </div>
+      <div class="form-fields-group">
+        <%= f.label 'Preparation time (hours):' %>
+        <%= f.number_field :preparation_time, min: 0, step: 0.01, required: true, class: 'form-field' %>
+      </div>
+      <div class="form-fields-group">
+        <%= f.label 'Cooking time (hours):' %>
+        <%= f.number_field :cooking_time,  min: 0, step: 0.01, required: true, class: 'form-field' %>
+      </div>
+      <div class="form-fields-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, required: true, class: 'form-field' %>
+      </div>
+      <div class="form-fields-group">
+      	<div class="display-flex">
+					<%= f.radio_button :public, true, class: 'radio-buttons' %>
+					<%= f.label 'Public' %>
+      	</div>
+      	<div class="display-flex">
+					<%= f.radio_button :public, false, class: 'radio-buttons' %>
+					<%= f.label 'Private' %>
+        </div>
+      </div>
+      <div class="actions">
+        <%= f.submit "Save food", class: 'action-button' %>
+        <%= link_to 'Cancel', recipes_path, class: 'action-button warning' %>
+      </div>
+    <% end %>
+  </div>
+</div>
