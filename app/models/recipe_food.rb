@@ -4,9 +4,9 @@ class RecipeFood < ApplicationRecord
   after_create :increment_quantity
 
   def increment_quantity
-		recipe_foods = RecipeFood.where(recipe_id: recipe_id)
-		recipe_foods.each do |recipe_food|
-			recipe_food.increment!(:quantity)
-		end
+    recipe_foods = RecipeFood.where(recipe_id:)
+    recipe_foods.each do |recipe_food|
+      recipe_food.increment!(:quantity)
+    end
   end
 end
