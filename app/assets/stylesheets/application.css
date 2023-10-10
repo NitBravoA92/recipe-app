@@ -26,6 +26,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -69,12 +73,48 @@ main {
   width: 100%;
 }
 
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2.5rem 0;
+}
+
+.action-button {
+  padding: 10px 20px;
+  background-color: transparent;
+  border:1.5px solid #178635;
+  border-radius: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #178635;
+  transition: all 0.3s ease-in-out;
+}
+
+.action-button:hover {
+  background-color: #178635;
+  color: white;
+  box-shadow: 0 0 10px #b1b5b2;
+  transform: scale(1.05);
+}
+
+.action-button.warning {
+  border:1.5px solid #ec950a;
+  color: #ec950a;
+}
+
+.action-button.warning:hover {
+  background-color: #ec950a;
+  color: white;
+}
+
 /* FORM */
 .form-wrapper {
   width: 100%;
 }
 
 .form-wrapper form {
+  width: 100%;
   margin: 1rem 0;
   display: flex;
   flex-direction: column;
@@ -95,6 +135,7 @@ main {
 }
 
 .form-field {
+  background-color: #fff;
   padding: 1rem;
   border: 1px solid #bbb6b6;
   border-radius: 0.3rem;
@@ -105,6 +146,10 @@ main {
 .form-field:focus {
   outline: none;
   border: 2px solid #bdd4c4;
+}
+
+.form-wrapper form .actions {
+  padding: 1rem 0;
 }
 
 /* TABLE */
@@ -133,7 +178,8 @@ main {
   color: #fff;
 }
 
-.table .table-body tr:nth-child(odd) {
+.table .table-body tr:nth-child(odd),
+.table .table-body tr:hover {
   background-color: #f6f6f6;
 }
 
@@ -156,6 +202,16 @@ main {
 
   .form_container {
     width: 80%;
+  }
+
+  .form-wrapper.col-2-form form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  
+  .form-wrapper.col-2-form .form-fields-group {
+    width: 48.5%;
   }
 }
 
