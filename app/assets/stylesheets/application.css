@@ -83,7 +83,7 @@ main {
 .action-button {
   padding: 10px 20px;
   background-color: transparent;
-  border:1.5px solid #178635;
+  border: 1.5px solid #178635;
   border-radius: 10px;
   font-size: 1.2em;
   font-weight: bold;
@@ -99,7 +99,7 @@ main {
 }
 
 .action-button.warning {
-  border:1.5px solid #ec950a;
+  border: 1.5px solid #ec950a;
   color: #ec950a;
 }
 
@@ -209,7 +209,7 @@ main {
     flex-wrap: wrap;
     justify-content: flex-end;
   }
-  
+
   .form-wrapper.col-2-form .form-fields-group {
     width: 48.5%;
   }
