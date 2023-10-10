@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :new, :create, :show, :destroy]
   # Defines the route for the "foods" page ("/foods")
   resources :foods, only: [:index, :new, :create, :destroy]
+  #Routes for the 'Public Recipes' page.
+  resources :public_recipes, only: [:index], controller: 'recipe_foods'
 end
