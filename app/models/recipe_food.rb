@@ -3,5 +3,5 @@ class RecipeFood < ApplicationRecord
   belongs_to :food, class_name: 'Food'
 
   # Avoids duplicated ingredients.
-	validates :food_id, uniqueness: true
+  validates :food_id, uniqueness: true
 end
