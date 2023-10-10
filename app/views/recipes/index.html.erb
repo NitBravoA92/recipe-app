@@ -1,0 +1,13 @@
+<div class="recipes-container">
+	<h1>Recipes List</h1>
+	<%= link_to 'Add Recipe', new_recipe_path, class: 'Add-recipe' %>
+	<% @recipes.each do |recipe| %>
+		<div class="recipes">
+			<div class="recipes-title">
+				<h2><%= recipe.name %></h2>
+				<%= link_to 'Remove', recipe_path(recipe), data: { turbo_method: :delete }, class: 'Remove-recipe' %>
+			</div>
+			<p><%= recipe.description.truncate(100) %></p>
+		</div>
+	<% end %>
+</div>
