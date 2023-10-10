@@ -33,5 +33,12 @@ RSpec.describe Food, type: :model do
 
       expect(food).to be_valid
     end
+
+    it 'The Food should not be valid without a measurement unit' do
+      food.name = 'Pineapple'
+      food.measurement_unit = nil
+
+      expect(food).to_not be_valid
+    end
   end
 end
