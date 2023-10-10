@@ -13,4 +13,25 @@ RSpec.describe Food, type: :model do
       expect(food.user.name).to eq("Gerard")
     end
   end
+
+
+  describe "attributes validation" do
+    it 'The Food should not be valid without a name' do
+      food.name = nil
+
+      expect(food).to_not be_valid
+    end
+
+    it 'The Food should not be valid if the name has more than 150 characters' do
+      food.name = 'Banana ' * 30
+
+      expect(food).to_not be_valid
+    end
+
+    it 'The Food should be valid if the name is less than or equal to 150' do
+      food.name = 'Apple' * 25
+
+      expect(food).to be_valid
+    end
+  end
 end
