@@ -59,6 +59,8 @@ group :development, :test do
 
   # The following gem is used for Capybara to interact with the browser.
   gem 'webdrivers'
+
+  gem 'factory_bot_rails'
 end
 
 group :development do
