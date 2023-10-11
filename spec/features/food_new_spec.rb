@@ -31,4 +31,10 @@ describe "Visit the new page of 'foods'", type: :feature do
     expect(page).to have_css('input[type="submit"]')
     expect(page).to have_content 'Cancel'
   end
+
+  it "Clicking on the Cancel button should redirect to foods's index page" do
+    visit new_food_path
+    click_link 'Cancel'
+    expect(page).to have_current_path(foods_path)
+  end
 end
