@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Foods', type: :request do
-
   # request to: /foods
   describe 'GET /index' do
     # the user Gerard logged in before run the tests
     before do
       user = FactoryBot.create(:user)
-      food = FactoryBot.create(:food, user: user)
+      FactoryBot.create(:food, user:)
       sign_in user
       get foods_path
     end
@@ -21,7 +20,7 @@ RSpec.describe 'Foods', type: :request do
     it 'renders the index template' do
       expect(response).to render_template(:index)
     end
-    
+
     # test If the response body includes correct content.
     it 'renders the index template with correct content' do
       expected_result = 'Foods List'

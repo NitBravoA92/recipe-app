@@ -1,21 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-
   let(:food) { create(:food) }
 
-  describe "food" do
-    it "should be valid" do
+  describe 'food' do
+    it 'should be valid' do
       expect(food).to be_valid
     end
 
-    it "should be owned by Gerard" do
-      expect(food.user.name).to eq("Gerard")
+    it 'should be owned by Gerard' do
+      expect(food.user.name).to eq('Gerard')
     end
   end
 
-
-  describe "attributes validation" do
+  describe 'attributes validation' do
     it 'The Food should not be valid without a name' do
       food.name = nil
 

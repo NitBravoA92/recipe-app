@@ -4,7 +4,7 @@ describe "Visit the new page of 'foods'", type: :feature do
   # logged in before run the tests
   before do
     user = FactoryBot.create(:user)
-    food = FactoryBot.create(:food, user: user)
+    FactoryBot.create(:food, user:)
     login_as(user)
   end
 
@@ -13,7 +13,7 @@ describe "Visit the new page of 'foods'", type: :feature do
     expect(page).to have_content 'Create a new food'
   end
 
-  it "should display a form with the fields to create a food" do
+  it 'should display a form with the fields to create a food' do
     visit new_food_path
     expect(page).to have_selector('form')
     expect(page).to have_css('input[type="text"]')

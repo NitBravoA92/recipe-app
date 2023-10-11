@@ -4,7 +4,7 @@ describe "Visit the index page of 'foods'", type: :feature do
   # logged in before run the tests
   before do
     user = FactoryBot.create(:user)
-    food = FactoryBot.create(:food, user: user)
+    FactoryBot.create(:food, user:)
     login_as(user)
   end
 
@@ -50,7 +50,7 @@ describe "Visit the index page of 'foods'", type: :feature do
     expect(page).to have_content '1'
   end
 
-  it "should display the Delete button" do
+  it 'should display the Delete button' do
     visit foods_path
     expect(page).to have_selector('button')
     expect(page).to have_content 'Delete'
