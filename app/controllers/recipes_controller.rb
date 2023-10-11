@@ -18,6 +18,11 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
+  	# Convert the hours into minutes.
+    params[:recipe][:preparation_time] = (params[:recipe][:preparation_time].to_f * 60).to_i
+    params[:recipe][:cooking_time] = (params[:recipe][:cooking_time].to_f * 60).to_i
+
+    # Require parameters
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 
