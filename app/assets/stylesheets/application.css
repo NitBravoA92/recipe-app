@@ -87,6 +87,23 @@ main {
   text-align: center;
 }
 
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  padding: 1rem 0;
+}
+
+.main-text {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #000;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
 .page-content {
   width: 100%;
 }
@@ -136,6 +153,80 @@ main {
   color: white;
 }
 
+.inline-button {
+  background-color: transparent;
+  font-size: 1.2em;
+  font-weight: bold;
+  display: inline-block;
+  padding: 0.5rem;
+  text-decoration: underline;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.inline-button.info {
+  color: #0554a3;
+}
+
+.inline-button.danger {
+  color: #a61b1b;
+}
+
+.container_col-2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* TOGGLE BUTTON */
+
+.toggle-button {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.toggle-button-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.toggle-button .toggle-button__label {
+  background-color: #e3e3e3;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 3rem;
+  display: inline-block;
+  position: relative;
+}
+
+.toggle-button .toggle-button__label:before {
+  transition: .2s;
+  display: block;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  background-color: #ffffff;
+  content: '';
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 0px 1px #000;
+}
+
+.toggle-button .toggle-button__label.is_public {
+  background-color: #178635;
+}
+
+.toggle-button .toggle-button__label.is_public:before {
+  transform: translateX(2rem);
+}
+
 /* FORM */
 .form-wrapper {
   width: 100%;
@@ -183,6 +274,7 @@ main {
 /* TABLE */
 .table {
   width: 100%;
+  margin: 0.7rem 0;
   background-color: #fff;
   border-collapse: collapse;
   border-width: 2px;
@@ -219,6 +311,13 @@ main {
 
   .form_container {
     width: 85%;
+  }
+  .container_col-2 {
+    flex-direction: row;
+  }
+
+  .container_col-2.between {
+    justify-content: space-between;
   }
 }
 
