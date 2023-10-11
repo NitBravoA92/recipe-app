@@ -46,9 +46,27 @@ main {
   color: white;
 }
 
+#recipe-description {
+  width: 100%;
+}
+
+#recipe_description {
+  height: 300px;
+}
+
 .main_page_wrapper {
   width: 100%;
   padding: 1rem;
+}
+
+.display-flex {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.radio-buttons {
+  width: 20px;
 }
 
 .section-container {
@@ -294,6 +312,8 @@ main {
   padding: 20px;
   max-width: 554px;
   background-color: beige;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .recipes-title {
@@ -313,8 +333,8 @@ main {
 }
 
 .Add-recipe {
-  background-color: aqua;
-  color: black;
+  background-color: #178635;
+  color: white;
 }
 
 .Remove-recipe {
