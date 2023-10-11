@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Recipes', type: :request do
-	# Request to /recipes
-	describe 'GET index' do
-		# the user Gerard logged in before run the tests
+  # Request to /recipes
+  describe 'GET index' do
+    # the user Gerard logged in before run the tests
     before do
       user = FactoryBot.create(:user)
       FactoryBot.create(:recipe, user:)
@@ -29,14 +29,14 @@ RSpec.describe 'Recipes', type: :request do
       expected_result_recipe = 'Cookies'
       expect(response.body).to include(expected_result_recipe)
     end
-	end
+  end
 
-	# Request to /recipes/new
-	describe 'GET /new' do
-		before do
+  # Request to /recipes/new
+  describe 'GET /new' do
+    before do
       user = FactoryBot.create(:user)
       sign_in user
-     	get new_recipe_path
+      get new_recipe_path
     end
 
     # test if the response status was correct (status 200)
@@ -46,7 +46,7 @@ RSpec.describe 'Recipes', type: :request do
 
     # test if a correct template was rendered.
     it 'renders the new template' do
-       expect(response).to render_template(:new)
+      expect(response).to render_template(:new)
     end
 
     # test If the response body includes correct content.
@@ -57,5 +57,5 @@ RSpec.describe 'Recipes', type: :request do
       expected_result_button = 'Save recipe'
       expect(response.body).to include(expected_result_button)
     end
-	end
+  end
 end
