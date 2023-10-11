@@ -24,5 +24,19 @@
       <%= link_to 'Generate shopping list', foods_path, class: 'action-button' %>
       <%= link_to 'Add Ingredient', foods_path, class: 'action-button' %>
     </div>
+
+    <table class="table">
+      <thead class="table-header">
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+        <%= render partial: 'partials/table_recipe_foods_item', collection: @recipe.recipe_foods, as: :recipe_food %>
+      </tbody>
+    </table>
   </div>
 </div>
