@@ -61,4 +61,11 @@ describe "Visit the index page of 'foods'", type: :feature do
     click_link 'Add Food'
     expect(page).to have_current_path(new_food_path)
   end
+
+  it "Clicking on the 'Delete' button should remove a food from the table and redirect to foods's page" do
+    visit foods_path
+    click_button 'Delete'
+    expect(page).to have_current_path(foods_path)
+    expect(page).to have_content 'The Food was deleted successfully!'
+  end
 end
