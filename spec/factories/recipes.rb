@@ -5,7 +5,7 @@ FactoryBot.define do
     preparation_time { 30 }
     cooking_time { 12 }
     description do
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+      'Lorem Ipsum is simply dummy text of the printing and typesetting'
     end
     public { true }
   end
