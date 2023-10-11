@@ -5,7 +5,7 @@
   <td>
     <div class="container_col-2">
       <a href="#" class="inline-button info">Modify</a>
-      <%= button_to 'Remove', recipe_recipe_food_path(recipe_food), method: :delete, remote: true, class: 'inline-button danger' %>
+      <%= button_to 'Remove', recipe_recipe_food_path(recipe_food.recipe, recipe_food), method: :delete, remote: true, class: 'inline-button danger' %>
     </div>
   </td>
 </tr>
