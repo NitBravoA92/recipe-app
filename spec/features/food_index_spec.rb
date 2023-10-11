@@ -55,4 +55,10 @@ describe "Visit the index page of 'foods'", type: :feature do
     expect(page).to have_selector('button')
     expect(page).to have_content 'Delete'
   end
+
+  it "Clicking on the 'Add Food' button should redirect to foods's new page" do
+    visit foods_path
+    click_link 'Add Food'
+    expect(page).to have_current_path(new_food_path)
+  end
 end
