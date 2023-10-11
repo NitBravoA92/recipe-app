@@ -305,6 +305,8 @@ main {
   padding: 20px;
   max-width: 554px;
   background-color: beige;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .recipes-title {
@@ -324,8 +326,8 @@ main {
 }
 
 .Add-recipe {
-  background-color: aqua;
-  color: black;
+  background-color: #178635;
+  color: white;
 }
 
 .Remove-recipe {
