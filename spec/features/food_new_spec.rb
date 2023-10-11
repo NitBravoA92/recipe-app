@@ -37,4 +37,21 @@ describe "Visit the new page of 'foods'", type: :feature do
     click_link 'Cancel'
     expect(page).to have_current_path(foods_path)
   end
+
+  it "Clicking on the 'Save food' button should send the form and create a new food" do
+    visit new_food_path
+
+    within('form') do
+      fill_in 'Name', with: 'Pineapple'
+      fill_in 'food[price]', with: 1.97
+      fill_in 'Quantity', with: 1
+    end
+
+    page.select 'units', from: 'food[measurement_unit]'
+
+    click_button 'Save food'
+
+    expect(page).to have_current_path(foods_path)
+    expect(page).to have_content 'The Food was created successfully!'
+  end
 end
