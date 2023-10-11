@@ -6,13 +6,17 @@
   
     <div class="container_col-2 between">
       <h2 class="subtitle">Preparation Time: <%= to_hour(@recipe.preparation_time) %></h2>
-      <h2>
-        <%= turbo_frame_tag "Public" do %>
-          <%= button_to update_status_recipe_path(@recipe), method: :patch, class: 'toggle-button' do %>
-            <span class="toggle-button-title">Public</span> <span class="toggle-button__label <%= 'is_public' if @recipe.public %>"></span>
+
+      <% if user_signed_in? %>
+        <div>
+          <%= turbo_frame_tag "Public" do %>
+            <%= button_to update_status_recipe_path(@recipe), method: :patch, class: 'toggle-button' do %>
+              <span class="toggle-button-title">Public</span> <span class="toggle-button__label <%= 'is_public' if @recipe.public %>"></span>
+            <% end %>
           <% end %>
-        <% end %>
-      </h2>
+        </div>
+      <% end %>
+
     </div>
 
     <h2 class="subtitle">Cooking Time: <%= to_hour(@recipe.cooking_time) %></h2>
@@ -22,21 +26,25 @@
 
     <div class="container_col-2 between">
       <%= link_to 'Generate shopping list', foods_path, class: 'action-button' %>
-      <%= link_to 'Add Ingredient', foods_path, class: 'action-button' %>
+      <% if user_signed_in? %>
+        <%= link_to 'Add Ingredient', foods_path, class: 'action-button' %>
+      <% end %>
     </div>
 
-    <table class="table">
-      <thead class="table-header">
-        <tr>
-          <th>Food</th>
-          <th>Quantity</th>
-          <th>Value</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody class="table-body">
-        <%= render partial: 'partials/table_recipe_foods_item', collection: @recipe.recipe_foods, as: :recipe_food %>
-      </tbody>
-    </table>
+    <% if user_signed_in? %>
+      <table class="table">
+        <thead class="table-header">
+          <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Value</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          <%= render partial: 'partials/table_recipe_foods_item', collection: @recipe.recipe_foods, as: :recipe_food %>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>
