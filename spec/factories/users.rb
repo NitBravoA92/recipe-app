@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :user do
-    id {1}
+    id { rand(1..5000) }
     name { 'Gerard' }
-    email { 'gerard123@domain.com' }
+    email { "user_#{id}@mail.com" }
     password  { 'gerard12345' }
     confirmed_at { Time.now }
   end
