@@ -2,6 +2,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :foods, join_table: 'recipe_foods'
   has_many :recipe_foods
+  before_save :convert_hours_to_minutes
 
   # Validations.
   validates :name, :description, presence: true
@@ -16,5 +17,10 @@ class Recipe < ApplicationRecord
 
   def count_ingredients
     foods.count
+  end
+
+  def convert_hours_to_minutes
+    self.preparation_time = (preparation_time.to_f * 60).to_i
+    self.cooking_time = (cooking_time.to_f * 60).to_i
   end
 end
