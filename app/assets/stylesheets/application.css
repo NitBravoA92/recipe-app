@@ -46,6 +46,14 @@ main {
   color: white;
 }
 
+#recipe-description {
+  width: 100%;
+}
+
+#recipe_description {
+  height: 300px;
+}
+
 .main_page_wrapper {
   width: 100%;
   padding: 1rem;
