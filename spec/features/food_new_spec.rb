@@ -12,4 +12,17 @@ describe "Visit the new page of 'foods'", type: :feature do
     visit new_food_path
     expect(page).to have_content 'Create a new food'
   end
+
+  it "should display a form with the fields to create a food" do
+    visit new_food_path
+    expect(page).to have_selector('form')
+    expect(page).to have_css('input[type="text"]')
+    expect(page).to have_css('input[type="number"]')
+    expect(page).to have_selector('select')
+
+    expect(page).to have_content 'Name'
+    expect(page).to have_content 'Measurement unit'
+    expect(page).to have_content 'Unit price'
+    expect(page).to have_content 'Quantity'
+  end
 end
