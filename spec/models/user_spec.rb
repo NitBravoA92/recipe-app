@@ -16,7 +16,9 @@ RSpec.describe User, type: :model do
     end
 
     it 'User object should have an email attribute, with a valid value' do
-      expect(user.email).to eq('gerard123@domain.com')
+      expected_result = "user_#{user.id}@mail.com"
+
+      expect(user.email).to eq(expected_result)
     end
 
     it 'User object should have a password attribute, with a valid value' do
