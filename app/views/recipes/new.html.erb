@@ -16,7 +16,7 @@
         <%= f.label 'Cooking time (hours):' %>
         <%= f.number_field :cooking_time,  min: 0, step: 0.01, required: true, class: 'form-field' %>
       </div>
-      <div class="form-fields-group">
+      <div class="form-fields-group" id="recipe-description">
         <%= f.label :description %>
         <%= f.text_area :description, required: true, class: 'form-field' %>
       </div>
