@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[index new create update_status destroy]
   before_action :recipe_by_user, only: %i[index new create destroy]
 
   def index
