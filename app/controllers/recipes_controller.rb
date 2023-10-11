@@ -19,6 +19,13 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.includes(:recipe_foods).find(params[:id])
+    if can? :read, @recipe
+      render :show
+    else
+      flash[:alert] = 'This recipe does not exist!'
+      redirect_to public_recipes_path unless user_signed_in?
+      redirect_to recipes_path if user_signed_in?
+    end
   end
 
   def update_status
