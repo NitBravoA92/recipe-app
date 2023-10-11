@@ -25,4 +25,10 @@ describe "Visit the new page of 'foods'", type: :feature do
     expect(page).to have_content 'Unit price'
     expect(page).to have_content 'Quantity'
   end
+
+  it 'should have a form with a submit input and a Cancel button' do
+    visit new_food_path
+    expect(page).to have_css('input[type="submit"]')
+    expect(page).to have_content 'Cancel'
+  end
 end
