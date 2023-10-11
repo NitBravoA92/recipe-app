@@ -3,7 +3,7 @@ module FoodsHelper
     options = {
       'grams' => 'g',
       'milliliters' => 'ml',
-      'units' => 'units',
+      'units' => 'units'
     }
     options[measurement]
   end
