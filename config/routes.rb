@@ -18,4 +18,7 @@ Rails.application.routes.draw do
 
   #Route for the 'Public Recipes' page
   get '/public_recipes', to: 'recipe_foods#index', as: 'public_recipes'
+
+  # Route for the 'General shopping list' page
+  get '/general_shopping_list', to: 'recipe_foods#general_shopping_list', as: 'general_shopping_list'
 end
