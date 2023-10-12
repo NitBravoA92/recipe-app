@@ -7,7 +7,7 @@
     <div class="container_col-2 between">
       <h2 class="subtitle">Preparation Time: <%= to_hour(@recipe.preparation_time) %></h2>
 
-      <% if user_signed_in? %>
+      <% if can? :manage, @recipe %>
         <div>
           <%= turbo_frame_tag "Public" do %>
             <%= button_to update_status_recipe_path(@recipe), method: :patch, class: 'toggle-button' do %>
@@ -26,12 +26,12 @@
 
     <div class="container_col-2 between">
       <%= link_to 'Generate shopping list', foods_path, class: 'action-button' %>
-      <% if user_signed_in? %>
+      <% if can? :manage, @recipe %>
         <%= link_to 'Add Ingredient', foods_path, class: 'action-button' %>
       <% end %>
     </div>
 
-    <% if user_signed_in? %>
+    <% if can? :manage, @recipe %>
       <table class="table">
         <thead class="table-header">
           <tr>
