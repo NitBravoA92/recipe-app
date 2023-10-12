@@ -1,4 +1,4 @@
-<div class="section-container">
+<div class="section-container d-flex flex-column align-items-center">
 
   <h1 class="main-title">Create a new food</h1>
 
@@ -21,8 +21,8 @@
         <%= f.number_field :quantity, required: true, class: 'form-field' %>
       </div>
       <div class="actions">
-        <%= f.submit "Save food", class: 'action-button' %>
-        <%= link_to 'Cancel', foods_path, class: 'action-button warning' %>
+        <%= f.submit "Save food", class: 'btn primary-bg primary-text primary-border' %>
+        <%= link_to 'Cancel', foods_path, class: 'btn warning-bg warning-text warning-border' %>
       </div>
     <% end %>
   </div>
