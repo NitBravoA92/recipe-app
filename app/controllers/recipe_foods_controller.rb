@@ -12,9 +12,13 @@ class RecipeFoodsController < ApplicationController
 
   def create
 		recipe_food = @recipe_food.new(recipe_food_params)
-		render :new unless recipe_food.save
-		flash[:notice] = 'The ingredient was added successfully!'
-    redirect_to recipe_path(@recipe)
+		if recipe_food.save
+			flash[:notice] = 'The ingredient was added successfully!'
+			redirect_to recipe_path(@recipe)
+		else
+			flash[:alert] = recipe_food.errors.full_messages.join(', ')
+			redirect_to request.referrer
+		end
 	end
 
 	def destroy
