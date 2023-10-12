@@ -11,4 +11,9 @@ class Food < ApplicationRecord
   def name_with_measurement_unit
     "#{name} (#{measurement_unit})"
   end
+
+	# Method to calculate the total food in all the recipes without the existing food of the user.
+  def general_food_quantity
+     (self.recipe_foods.joins(:food).sum('recipe_foods.quantity') - self.quantity).abs
+  end
 end
