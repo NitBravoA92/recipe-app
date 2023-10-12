@@ -1,6 +1,6 @@
 class RecipeFoodsController < ApplicationController
-  before_action :foods_by_recipe
   before_action :authenticate_user!, only: %i[destroy]
+  before_action :foods_by_recipe, except: [:index]
 
   def index
     @recipes = Recipe.includes(:recipe_foods, :user).where(public: true).order(created_at: :desc)
@@ -35,7 +35,8 @@ class RecipeFoodsController < ApplicationController
   end
 
   def foods_by_recipe
-  	@recipe = Recipe.find(params[:recipe_id])
+  	@foods = current_user.foods.all
+  	@recipe = Recipe.find_by(id: params[:recipe_id])
 		@recipe_food = @recipe.recipe_foods
 	end
 end
