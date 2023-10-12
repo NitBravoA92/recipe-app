@@ -149,9 +149,13 @@ nav {
   font-size: 2.5rem;
 }
 
-.toggle a {
+.toggle button {
+  background-color: transparent;
+  border: none;
+  outline: none;
   font-size: 1.8rem;
   color: var(--light-color);
+  cursor: pointer;
 }
 
 nav a:hover {
