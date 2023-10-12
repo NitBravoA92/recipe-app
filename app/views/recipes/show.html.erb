@@ -1,33 +1,20 @@
-<div class="section-container">
-
+<div class="section-container d-flex flex-column align-items-center">
   <h1 class="main-title"><%= @recipe.name %></h1>
-
-  <div class="page-content">
+  <div class="w-100">
 
     <div class="container_col-2 between">
       <h2 class="subtitle">Preparation Time: <%= to_hour(@recipe.preparation_time) %></h2>
-
-      <% if can? :manage, @recipe %>
-        <div>
-          <%= turbo_frame_tag "Public" do %>
-            <%= button_to update_status_recipe_path(@recipe), method: :patch, class: 'toggle-button' do %>
-              <span class="toggle-button-title">Public</span> <span class="toggle-button__label <%= 'is_public' if @recipe.public %>"></span>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
-
+      <%= render partial: 'partials/public_toggle_button', object: @recipe, as: :recipe %>
     </div>
 
     <h2 class="subtitle">Cooking Time: <%= to_hour(@recipe.cooking_time) %></h2>
-
     <h2 class="subtitle">Description:</h2>
     <p class="main-text"><%= @recipe.description %></p>
 
     <div class="container_col-2 between">
-      <%= link_to 'Generate shopping list', foods_path, class: 'action-button' %>
+      <%= link_to 'Generate shopping list', foods_path, class: 'btn primary-bg primary-text primary-border' %>
       <% if can? :manage, @recipe %>
-        <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class: 'action-button' %>
+        <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class: 'btn primary-bg primary-text primary-border' %>
       <% end %>
     </div>
 
