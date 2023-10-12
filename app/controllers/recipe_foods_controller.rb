@@ -1,6 +1,6 @@
 class RecipeFoodsController < ApplicationController
   before_action :authenticate_user!, only: %i[destroy]
-  before_action :foods_by_recipe, except: [:index]
+  before_action :foods_by_recipe, except: [:index, :general_shopping_list]
 
   def index
     @recipes = Recipe.includes(:recipe_foods, :user).where(public: true).order(created_at: :desc)
@@ -49,8 +49,8 @@ class RecipeFoodsController < ApplicationController
   end
 
   def general_shopping_list
-  	# Select all the recipe foods for all the recipes of the logged user.
-		@general_recipe_foods = current_user.recipes.recipe_foods
+  	# Select all the ingredients in the recipes, joined with all the foods allowed.
+  	@general_recipe_foods = current_user.foods.joins(:recipe_foods).distinct
   end
 
   private
