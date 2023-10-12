@@ -12,7 +12,7 @@
     <p class="main-text"><%= @recipe.description %></p>
 
     <div class="container_col-2 between">
-      <%= link_to 'Generate shopping list', foods_path, class: 'btn primary-bg primary-text primary-border' %>
+      <%= link_to 'Generate shopping list', general_shopping_list_path, class: 'btn primary-bg primary-text primary-border' %>
       <% if can? :manage, @recipe %>
         <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class: 'btn primary-bg primary-text primary-border' %>
       <% end %>
