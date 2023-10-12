@@ -1,12 +1,12 @@
-<div class="section-container">
+<div class="section-container d-flex flex-column align-items-center">
 
   <h1 class="main-title">Shopping List</h1>
 
-  <div class="page-content">
+  <div class="w-100">
 
     <div class="container_col-2 between">
-			<h2>Amount of food items to buy: <%= @foods.length %></h2>
-			<h2>Total value of food needed: <%= "$#{@total_general_price}" %></h2>
+			<h2 class="subtitle">Amount of food items to buy: <span class="primary-text"><%= @foods.length %></span></h2>
+			<h2 class="subtitle">Total value of food needed: <span class="primary-text"><%= "$#{@total_general_price}" %></span></h2>
     </div>
 
       <table class="table">
