@@ -48,6 +48,11 @@ class RecipeFoodsController < ApplicationController
     redirect_to recipe_path(recipe)
   end
 
+  def general_shopping_list
+  	# Select all the recipe foods for all the recipes of the logged user.
+		@general_recipe_foods = current_user.recipes.recipe_foods
+  end
+
   private
 
   def recipe_food_params
