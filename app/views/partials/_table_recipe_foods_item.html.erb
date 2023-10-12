@@ -4,8 +4,8 @@
   <td><%= "$#{recipe_food.total_price}" %></td>
   <td>
     <div class="container_col-2">
-      <%= link_to 'Modify', edit_recipe_recipe_food_path(recipe_food.recipe, recipe_food), remote: true, class: "inline-button info" %>
-      <%= button_to 'Remove', recipe_recipe_food_path(recipe_food.recipe, recipe_food), method: :delete, remote: true, class: 'inline-button danger' %>
+      <%= link_to 'Modify', edit_recipe_recipe_food_path(recipe_food.recipe, recipe_food), remote: true, class: "btn-inline info-text" %>
+      <%= button_to 'Remove', recipe_recipe_food_path(recipe_food.recipe, recipe_food), method: :delete, remote: true, class: 'btn-inline danger-text' %>
     </div>
   </td>
 </tr>
