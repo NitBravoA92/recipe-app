@@ -7,56 +7,56 @@ class RecipeFoodsController < ApplicationController
   end
 
   def new
-  	@recipe_food = @recipe_food.new
+    @recipe_food = @recipe_food.new
   end
 
   def create
-		recipe_food = @recipe_food.new(recipe_food_params)
-		if recipe_food.save
-			flash[:notice] = 'The ingredient was added successfully!'
-			redirect_to recipe_path(@recipe)
-		else
-			flash[:alert] = recipe_food.errors.full_messages.join(', ')
-			redirect_to request.referrer
-		end
-	end
-
-	def edit
-		@recipe_food = @recipe_food.find_by(id: params[:id])
-	end
-
-	def update
-		recipe_food = @recipe_food.find_by(id: params[:id])
-
-		if recipe_food.update(recipe_food_params)
-			flash[:notice] = 'The ingredient was modified successfully!'
-			redirect_to recipe_path(@recipe)
+    recipe_food = @recipe_food.new(recipe_food_params)
+    if recipe_food.save
+      flash[:notice] = 'The ingredient was added successfully!'
+      redirect_to recipe_path(@recipe)
     else
       flash[:alert] = recipe_food.errors.full_messages.join(', ')
       redirect_to request.referrer
     end
-	end
+  end
 
-	def destroy
-      recipe_food = RecipeFood.find(params[:id])
-      recipe = recipe_food.recipe
-      if recipe_food.destroy
-        flash[:notice] = 'The Food was remove successfully!'
-      else
-        flash[:alert] = 'The Food was not remove!'
-      end
-      redirect_to recipe_path(recipe)
+  def edit
+    @recipe_food = @recipe_food.find_by(id: params[:id])
+  end
+
+  def update
+    recipe_food = @recipe_food.find_by(id: params[:id])
+
+    if recipe_food.update(recipe_food_params)
+      flash[:notice] = 'The ingredient was modified successfully!'
+      redirect_to recipe_path(@recipe)
+    else
+      flash[:alert] = recipe_food.errors.full_messages.join(', ')
+      redirect_to request.referrer
+    end
+  end
+
+  def destroy
+    recipe_food = RecipeFood.find(params[:id])
+    recipe = recipe_food.recipe
+    if recipe_food.destroy
+      flash[:notice] = 'The Food was remove successfully!'
+    else
+      flash[:alert] = 'The Food was not remove!'
+    end
+    redirect_to recipe_path(recipe)
   end
 
   private
 
   def recipe_food_params
-  	params.require(:recipe_food).permit(:food_id, :quantity)
+    params.require(:recipe_food).permit(:food_id, :quantity)
   end
 
   def foods_by_recipe
-  	@foods = current_user.foods.all
-  	@recipe = Recipe.find_by(id: params[:recipe_id])
-		@recipe_food = @recipe.recipe_foods
-	end
+    @foods = current_user.foods.all
+    @recipe = Recipe.find_by(id: params[:recipe_id])
+    @recipe_food = @recipe.recipe_foods
+  end
 end
