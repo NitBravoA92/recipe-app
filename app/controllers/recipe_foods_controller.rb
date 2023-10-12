@@ -53,11 +53,15 @@ class RecipeFoodsController < ApplicationController
   	@general_recipe_foods = current_user.foods.joins(:recipe_foods).distinct
 
 		@foods = []
+		# Save only the ingredients that are missing (more than you have).
   	@general_recipe_foods.each do |food|
   		if food.general_food_quantity > food.quantity
   			@foods << food
   		end
   	end
+
+		# Find the total price.
+  	@total_general_price = @foods.sum(&:general_price)
   end
 
   private
