@@ -3,7 +3,7 @@
   <h1 class="main-title"><%= @recipe.name %></h1>
 
   <div class="page-content">
-  
+
     <div class="container_col-2 between">
       <h2 class="subtitle">Preparation Time: <%= to_hour(@recipe.preparation_time) %></h2>
 
@@ -27,7 +27,7 @@
     <div class="container_col-2 between">
       <%= link_to 'Generate shopping list', foods_path, class: 'action-button' %>
       <% if can? :manage, @recipe %>
-        <%= link_to 'Add Ingredient', foods_path, class: 'action-button' %>
+        <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class: 'action-button' %>
       <% end %>
     </div>
 
