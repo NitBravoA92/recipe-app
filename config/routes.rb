@@ -5,12 +5,17 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
-  # Routes for the 'Recipes' page.
+  # Routes for the 'Recipes'
   resources :recipes, only: [:index, :new, :create, :show, :destroy] do
-  	resources :recipe_foods, only: [:new, :create, :edit, :update, :destroy]
+    patch 'update_status', on: :member
+
+    # Routes for the 'Recipe Foods'
+    resources :recipe_foods, only: [:new, :create, :edit, :update, :destroy]
   end
-  # Defines the route for the "foods" page ("/foods")
+
+  # Defines the route for the "foods"
   resources :foods, only: [:index, :new, :create, :destroy]
-  #Route for the 'Public Recipes' page.
+
+  #Route for the 'Public Recipes' page
   get '/public_recipes', to: 'recipe_foods#index', as: 'public_recipes'
 end

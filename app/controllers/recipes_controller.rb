@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
-  before_action :recipe_by_user
+  before_action :authenticate_user!, only: %i[index new create update_status destroy]
+  before_action :recipe_by_user, only: %i[index new create destroy]
+
   def index
     @recipes = current_user.recipes.all
   end
@@ -13,6 +15,25 @@ class RecipesController < ApplicationController
     render :new unless recipe.save
     flash[:notice] = 'The Recipe was created successfully!'
     redirect_to recipes_path
+  end
+
+  def show
+    @recipe = Recipe.includes(:recipe_foods).find(params[:id])
+    if can? :read, @recipe
+      render :show
+    else
+      flash[:alert] = 'This recipe does not exist!'
+      redirect_to public_recipes_path unless user_signed_in?
+      redirect_to recipes_path if user_signed_in?
+    end
+  end
+
+  def update_status
+    recipe = Recipe.find(params[:id])
+    status = recipe.public ? false : true
+    result = recipe.update(public: status)
+    flash[:notice] = 'The Recipe status was updated!' if result
+    redirect_to recipe_path(recipe)
   end
 
   def destroy
