@@ -51,6 +51,13 @@ class RecipeFoodsController < ApplicationController
   def general_shopping_list
   	# Select all the ingredients in the recipes, joined with all the foods allowed.
   	@general_recipe_foods = current_user.foods.joins(:recipe_foods).distinct
+
+		@foods = []
+  	@general_recipe_foods.each do |food|
+  		if food.general_food_quantity > food.quantity
+  			@foods << food
+  		end
+  	end
   end
 
   private

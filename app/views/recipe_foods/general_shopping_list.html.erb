@@ -5,7 +5,7 @@
   <div class="page-content">
 
     <div class="container_col-2 between">
-			<h2>Amount of food items to buy: <%= @general_recipe_foods.length %></h2>
+			<h2>Amount of food items to buy: <%= @foods.length %></h2>
 			<h2>Total value of food needed: <%= %></h2>
     </div>
 
@@ -18,7 +18,7 @@
           </tr>
         </thead>
         <tbody class="table-body">
-          <%= render partial: 'partials/table_general_shopping_list', collection: @general_recipe_foods, as: :ingredient %>
+          <%= render partial: 'partials/table_general_shopping_list', collection: @foods, as: :ingredient %>
         </tbody>
       </table>
   </div>
