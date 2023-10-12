@@ -21,6 +21,22 @@ class RecipeFoodsController < ApplicationController
 		end
 	end
 
+	def edit
+		@recipe_food = @recipe_food.find_by(id: params[:id])
+	end
+
+	def update
+		recipe_food = @recipe_food.find_by(id: params[:id])
+
+		if recipe_food.update(recipe_food_params)
+			flash[:notice] = 'The ingredient was modified successfully!'
+			redirect_to recipe_path(@recipe)
+    else
+      flash[:alert] = recipe_food.errors.full_messages.join(', ')
+      redirect_to request.referrer
+    end
+	end
+
 	def destroy
       recipe_food = RecipeFood.find(params[:id])
       recipe = recipe_food.recipe
