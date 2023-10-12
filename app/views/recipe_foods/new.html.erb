@@ -1,0 +1,21 @@
+<div class="section-container">
+
+  <h1 class="main-title">Add an ingredient</h1>
+
+	<div class="form-wrapper col-2-form">
+      <%= form_with(model: @recipe_food, url: recipe_recipe_foods_path(@recipe)) do |f| %>
+        <div class="form-fields-group">
+          <%= f.label 'Select your ingredient' %>
+          <%= f.collection_select(:food_id, @foods_not_in_recipe, :id, :name_with_measurement_unit, {required: true}, {class: 'form-field'}) %>
+        </div>
+        <div class="form-fields-group">
+          <%= f.label :quantity %>
+          <%= f.number_field :quantity, min: 1, step: 1, value: 1, required: true, class: 'form-field' %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Save ingredient", class: 'action-button' %>
+          <%= link_to 'Cancel', recipe_path(@recipe), class: 'action-button warning' %>
+        </div>
+      <% end %>
+  </div>
+</div>

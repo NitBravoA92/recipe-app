@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     patch 'update_status', on: :member
 
     # Routes for the 'Recipe Foods'
-    resources :recipe_foods, only: [:new, :create, :destroy]
+    resources :recipe_foods, only: [:new, :create, :edit, :update, :destroy]
   end
 
   # Defines the route for the "foods"
