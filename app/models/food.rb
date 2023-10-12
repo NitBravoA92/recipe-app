@@ -14,11 +14,18 @@ class Food < ApplicationRecord
 
 	# Method to calculate the total food in all the recipes without the existing food of the user.
   def general_food_quantity
-     (self.recipe_foods.joins(:food).sum('recipe_foods.quantity') - quantity).abs
+     self.recipe_foods.joins(:food).sum('recipe_foods.quantity')
+  end
+
+  def total_food
+  	(general_food_quantity - quantity).abs
   end
 
 	# Method to calculate the total price of an ingredient.
   def general_price
-  	general_food_quantity * price
+  	total_food * price
   end
+
+  # Method to calculate the total amount of price of the ingredients.
+
 end
