@@ -58,5 +58,7 @@ class RecipeFoodsController < ApplicationController
     @foods = current_user.foods.all
     @recipe = Recipe.find_by(id: params[:recipe_id])
     @recipe_food = @recipe.recipe_foods
+    # Select the foods that are not in the recipe.
+    @foods_not_in_recipe = @foods.where.not(id: @recipe_food.pluck(:food_id))
   end
 end

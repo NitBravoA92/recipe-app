@@ -6,7 +6,7 @@
       <%= form_with(model: @recipe_food, url: recipe_recipe_foods_path(@recipe)) do |f| %>
         <div class="form-fields-group">
           <%= f.label 'Select your ingredient' %>
-          <%= f.collection_select(:food_id, @foods, :id, :name_with_measurement_unit, {required: true}, {class: 'form-field'}) %>
+          <%= f.collection_select(:food_id, @foods_not_in_recipe, :id, :name_with_measurement_unit, {required: true}, {class: 'form-field'}) %>
         </div>
         <div class="form-fields-group">
           <%= f.label :quantity %>
