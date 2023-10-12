@@ -1,6 +1,6 @@
 class RecipeFoodsController < ApplicationController
   before_action :authenticate_user!, only: %i[destroy]
-  before_action :foods_by_recipe, except: [:index, :general_shopping_list]
+  before_action :foods_by_recipe, except: %i[index general_shopping_list]
 
   def index
     @recipes = Recipe.includes(:recipe_foods, :user).where(public: true).order(created_at: :desc)
@@ -49,19 +49,17 @@ class RecipeFoodsController < ApplicationController
   end
 
   def general_shopping_list
-  	# Select all the ingredients in the recipes, joined with all the foods allowed.
-  	@general_recipe_foods = current_user.foods.joins(:recipe_foods).distinct
+    # Select all the ingredients in the recipes, joined with all the foods allowed.
+    @general_recipe_foods = current_user.foods.joins(:recipe_foods).distinct
 
-		@foods = []
-		# Save only the ingredients that are missing (more than you have).
-  	@general_recipe_foods.each do |food|
-  		if food.general_food_quantity > food.quantity
-  			@foods << food
-  		end
-  	end
+    @foods = []
+    # Save only the ingredients that are missing (more than you have).
+    @general_recipe_foods.each do |food|
+      @foods << food if food.general_food_quantity > food.quantity
+    end
 
-		# Find the total price.
-  	@total_general_price = @foods.sum(&:general_price)
+    # Find the total price.
+    @total_general_price = @foods.sum(&:general_price)
   end
 
   private
