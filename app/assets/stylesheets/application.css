@@ -17,9 +17,11 @@
 .primary-bg {
   background-color: var(--primary-color);
 }
+
 .primary-text {
   color: var(--primary-color);
 }
+
 .primary-border {
   border-color: var(--primary-color);
 }
@@ -27,9 +29,11 @@
 .light-bg {
   background-color: var(--light-color);
 }
+
 .light-text {
   color: var(--light-color);
 }
+
 .light-border {
   border-color: var(--light-color);
 }
@@ -37,9 +41,11 @@
 .dark-bg {
   background-color: var(--dark-color);
 }
+
 .dark-text {
   color: var(--dark-color);
 }
+
 .dark-border {
   border-color: var(--dark-color);
 }
@@ -47,9 +53,11 @@
 .warning-bg {
   background-color: var(--warning-color);
 }
+
 .warning-text {
   color: var(--warning-color);
 }
+
 .warning-border {
   border-color: var(--warning-color);
 }
@@ -57,9 +65,11 @@
 .danger-bg {
   background-color: var(--danger-color);
 }
+
 .danger-text {
   color: var(--danger-color);
 }
+
 .danger-border {
   border-color: var(--danger-color);
 }
@@ -110,7 +120,6 @@
   width: 100%;
 }
 
-
 /* pages styles */
 
 * {
@@ -136,6 +145,15 @@ nav {
   padding: 0.3rem 1.25rem;
 }
 
+.logo a {
+  font-size: 2.5rem;
+}
+
+.toggle a {
+  font-size: 1.8rem;
+  color: var(--light-color);
+}
+
 nav a:hover {
   text-decoration: underline;
   color: var(--primary-color);
@@ -149,15 +167,6 @@ nav a:hover {
   font-size: 1rem;
   padding: 1rem 0.3rem;
   white-space: nowrap;
-}
-
-.logo a {
-  font-size: 2.5rem;
-}
-
-.toggle a {
-  font-size: 1.8rem;
-  color: var(--light-color);
 }
 
 .session-link.muted {
@@ -495,42 +504,49 @@ main {
   .menu {
     justify-content: center;
   }
+
   .logo {
     flex: 1;
   }
+
   .toggle {
     flex: 1;
     text-align: right;
+    order: 2;
   }
+
   .nav-item.session-link {
     width: auto;
     order: 1;
     display: block;
   }
-  .toggle {
-    order: 2;
-  }
+
   .session-link.muted {
     border: 0;
   }
+
   .session-link a {
     padding: 0.55rem 1rem;
     background: var(--primary-color);
     border: 1px var(--primary-color) solid;
     color: var(--light-color);
-    border-radius: 0.70rem;
+    border-radius: 0.7rem;
   }
+
   .session-link.muted a {
     background: transparent;
   }
+
   .session-link a:hover {
     text-decoration: none;
   }
+
   .session-link:not(.muted) a:hover {
     background: var(--primary-color);
     border-color: var(--primary-color);
     color: #083e16;
   }
+
   .session-link.muted a:hover {
     color: var(--primary-color);
   }
@@ -556,22 +572,25 @@ main {
   .nav-item {
     display: block;
     width: auto;
+    order: 1;
   }
+
   .toggle {
     display: none;
   }
+
   .logo {
     order: 0;
   }
-  .nav-item {
-    order: 1;
-  }
+
   .session-link {
     order: 2;
   }
+
   .menu li {
     padding: 15px 10px;
   }
+
   .menu li.session-link {
     padding-right: 0;
   }
