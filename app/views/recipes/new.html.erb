@@ -1,39 +1,42 @@
-<div class="section-container">
+<%= image_tag 'body-bg.png', class: 'headline-image w-100 opacity-6' %>
+<section class="main_page_wrapper w-100">
+  <div class="section-container d-flex flex-column align-items-center">
 
-  <h1 class="main-title">Create a new Recipe</h1>
+    <h1 class="main-title">Create a new Recipe</h1>
 
-  <div class="form-wrapper col-2-form">
-    <%= form_with(model: @recipe, url: recipes_path) do |f| %>
-      <div class="form-fields-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, required: true, class: 'form-field' %>
-      </div>
-      <div class="form-fields-group">
-        <%= f.label 'Preparation time (hours):' %>
-        <%= f.number_field :preparation_time, min: 0, step: 0.01, required: true, class: 'form-field' %>
-      </div>
-      <div class="form-fields-group">
-        <%= f.label 'Cooking time (hours):' %>
-        <%= f.number_field :cooking_time,  min: 0, step: 0.01, required: true, class: 'form-field' %>
-      </div>
-      <div class="form-fields-group" id="recipe-description">
-        <%= f.label :description %>
-        <%= f.text_area :description, required: true, class: 'form-field' %>
-      </div>
-      <div class="form-fields-group">
-      	<div class="display-flex">
-					<%= f.radio_button :public, true, class: 'radio-buttons' %>
-					<%= f.label 'Public' %>
-      	</div>
-      	<div class="display-flex">
-					<%= f.radio_button :public, false, class: 'radio-buttons' %>
-					<%= f.label 'Private' %>
+    <div class="form-wrapper">
+      <%= form_with(model: @recipe, url: recipes_path) do |f| %>
+        <div class="form-fields-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, required: true, class: 'form-field' %>
         </div>
-      </div>
-      <div class="actions">
-        <%= f.submit "Save recipe", class: 'action-button' %>
-        <%= link_to 'Cancel', recipes_path, class: 'action-button warning' %>
-      </div>
-    <% end %>
+        <div class="form-fields-group">
+          <%= f.label 'Preparation time (hours):' %>
+          <%= f.number_field :preparation_time, min: 0, step: 0.01, required: true, class: 'form-field' %>
+        </div>
+        <div class="form-fields-group">
+          <%= f.label 'Cooking time (hours):' %>
+          <%= f.number_field :cooking_time,  min: 0, step: 0.01, required: true, class: 'form-field' %>
+        </div>
+        <div class="form-fields-group">
+          <div class="gap-0_7 d-flex flex-row">
+            <%= f.radio_button :public, true, class: 'radio-buttons' %>
+            <%= f.label 'Public' %>
+          </div>
+          <div class="gap-0_7 d-flex flex-row">
+            <%= f.radio_button :public, false, class: 'radio-buttons' %>
+            <%= f.label 'Private' %>
+          </div>
+        </div>
+        <div class="form-fields-group" id="recipe-description">
+          <%= f.label :description %>
+          <%= f.text_area :description, required: true, class: 'form-field' %>
+        </div>
+        <div class="actions w-100 d-flex flex-row justify-end align-items-center">
+          <%= f.submit "Save recipe", class: 'btn primary-bg primary-text primary-border' %>
+          <%= link_to 'Cancel', recipes_path, class: 'btn warning-bg warning-text warning-border' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+</section>

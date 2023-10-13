@@ -1,29 +1,32 @@
-<div class="section-container">
+<%= image_tag 'body-bg.png', class: 'headline-image w-100 opacity-6' %>
+<section class="main_page_wrapper w-100">
+  <div class="section-container d-flex flex-column align-items-center">
 
-  <h1 class="main-title">Create a new food</h1>
+    <h1 class="main-title">Create a new food</h1>
 
-  <div class="form-wrapper col-2-form">
-    <%= form_with(model: @food, url: foods_path) do |f| %>
-      <div class="form-fields-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, required: true, class: 'form-field' %>
-      </div>
-      <div class="form-fields-group">
-        <%= f.label 'Measurement unit' %>
-        <%= f.select :measurement_unit, options_for_select(['grams', 'milliliters', 'units']), { prompt: 'Select a  measurement' }, required: true, class: 'form-field' %>
-      </div>
-      <div class="form-fields-group">
-        <%= f.label 'Unit price' %>
-        <%= f.number_field :price, min: 1.00, step: 0.01, required: true, class: 'form-field' %>
-      </div>
-      <div class="form-fields-group">
-        <%= f.label :quantity %>
-        <%= f.number_field :quantity, required: true, class: 'form-field' %>
-      </div>
-      <div class="actions">
-        <%= f.submit "Save food", class: 'action-button' %>
-        <%= link_to 'Cancel', foods_path, class: 'action-button warning' %>
-      </div>
-    <% end %>
+    <div class="form-wrapper col-2-form">
+      <%= form_with(model: @food, url: foods_path) do |f| %>
+        <div class="form-fields-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, required: true, class: 'form-field' %>
+        </div>
+        <div class="form-fields-group">
+          <%= f.label 'Measurement unit' %>
+          <%= f.select :measurement_unit, options_for_select(['grams', 'milliliters', 'units']), { prompt: 'Select a  measurement' }, required: true, class: 'form-field' %>
+        </div>
+        <div class="form-fields-group">
+          <%= f.label 'Unit price' %>
+          <%= f.number_field :price, min: 1.00, step: 0.01, required: true, class: 'form-field' %>
+        </div>
+        <div class="form-fields-group">
+          <%= f.label :quantity %>
+          <%= f.number_field :quantity, required: true, class: 'form-field' %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Save food", class: 'btn primary-bg primary-text primary-border' %>
+          <%= link_to 'Cancel', foods_path, class: 'btn warning-bg warning-text warning-border' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+</section>
