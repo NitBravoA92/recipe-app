@@ -143,6 +143,10 @@ ul {
 nav {
   background: var(--secondary-color);
   padding: 0.3rem 1.25rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
 }
 
 .logo a {
@@ -195,6 +199,45 @@ nav a:hover {
 
 .nav-item.active {
   display: block;
+}
+
+.headline {
+  position: relative;
+}
+
+.home-headline-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.headline-content {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.354);
+  width: 90%;
+  min-height: 35rem;
+}
+
+.headline-greeting {
+  font-size: 2.5rem;
+  font-weight: 200;
+  margin-bottom: 2.5rem;
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.top-space {
+  padding-top: 12rem;
 }
 
 main {
@@ -555,6 +598,14 @@ main {
     color: var(--primary-color);
   }
 
+  .headline-content {
+    width: 80%;
+  }
+
+  .app-title {
+    font-size: 6.5rem;
+  }
+
   .main_section {
     padding: 1.5rem;
   }
@@ -597,6 +648,10 @@ main {
 
   .menu li.session-link {
     padding-right: 0;
+  }
+
+  .headline-content {
+    width: 65%;
   }
 
   .main_page_wrapper {
