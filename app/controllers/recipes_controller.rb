@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.includes(:recipe_foods).find(params[:id])
+    @recipe = Recipe.find(params[:id])
     if can? :read, @recipe
       render :show
     else
