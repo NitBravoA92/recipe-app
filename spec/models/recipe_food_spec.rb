@@ -47,9 +47,18 @@ RSpec.describe RecipeFood, type: :model do
   end
 
   describe 'recipe food methods' do
+    before :each do
+      id = 100874
+      email = "user_recipe_foods_model#{id}@mailrecipefoods.com"
+      user = FactoryBot.create(:user, id:, email:)
+      recipe = create(:recipe, user: user)
+      food = create(:food, user: user)
+      @recipe_food = RecipeFood.create(food: food, recipe: recipe, quantity: 1)
+    end
+
     it 'the total_price method should return the total cost of a ingredient in the recipe' do
-      expected_result = (recipe_food.quantity * recipe_food.food.price)
-      expect(recipe_food.total_price).to eq(expected_result)
+      expected_result = (@recipe_food.quantity * @recipe_food.food.price)
+      expect(@recipe_food.total_price).to eq(expected_result)
     end
   end
 end
