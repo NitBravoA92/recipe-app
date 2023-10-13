@@ -33,5 +33,7 @@ module RecipeApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.active_support.key_generator_hash_digest_class = OpenSSL::Digest::SHA1
   end
 end
