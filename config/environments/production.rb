@@ -68,8 +68,6 @@ Rails.application.configure do
 
   config.server_timing = true
 
-  config.action_mailer.delivery_method = :letter_opener
-
   config.action_mailer.default_url_options = { host: ENV['RECIPE_APP_HOST'], port: ENV['RECIPE_APP_PORT'] }
 
   # Ignore bad email addresses and do not raise email delivery errors.
