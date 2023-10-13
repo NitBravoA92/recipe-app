@@ -1,0 +1,11 @@
+<tr>
+  <td><%= recipe_food.food.name %></td>
+  <td><%= "#{recipe_food.quantity}#{get_measurement_prefix(recipe_food.food.measurement_unit)}" %></td>
+  <td><%= "$#{recipe_food.total_price}" %></td>
+  <td>
+    <div class="container_col-2">
+      <%= link_to 'Modify', edit_recipe_recipe_food_path(recipe_food.recipe, recipe_food), remote: true, class: "btn-inline info-text" %>
+      <%= button_to 'Remove', recipe_recipe_food_path(recipe_food.recipe, recipe_food), method: :delete, remote: true, class: 'btn-inline danger-text' %>
+    </div>
+  </td>
+</tr>

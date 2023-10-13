@@ -1,0 +1,24 @@
+<%= image_tag 'body-bg.png', class: 'headline-image w-100 opacity-6' %>
+<section class="main_page_wrapper w-100">
+  <div class="section-container d-flex flex-column align-items-center">
+
+    <h1 class="main-title">Add an ingredient</h1>
+
+    <div class="form-wrapper col-2-form">
+        <%= form_with(model: @recipe_food, url: recipe_recipe_foods_path(@recipe)) do |f| %>
+          <div class="form-fields-group">
+            <%= f.label 'Select your ingredient' %>
+            <%= f.collection_select(:food_id, @foods_not_in_recipe, :id, :name_with_measurement_unit, {required: true}, {class: 'form-field'}) %>
+          </div>
+          <div class="form-fields-group">
+            <%= f.label :quantity %>
+            <%= f.number_field :quantity, min: 1, step: 1, value: 1, required: true, class: 'form-field' %>
+          </div>
+          <div class="actions w-100 d-flex flex-row justify-end align-items-center">
+            <%= f.submit "Save ingredient", class: 'btn primary-bg primary-text primary-border' %>
+            <%= link_to 'Cancel', recipe_path(@recipe), class: 'btn warning-bg warning-text warning-border' %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</section>

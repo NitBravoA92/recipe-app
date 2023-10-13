@@ -1,0 +1,28 @@
+<%= image_tag 'body-bg.png', class: 'headline-image w-100 opacity-6' %>
+<section class="main_page_wrapper w-100">
+  <div class="section-container d-flex flex-column align-items-center">
+
+    <h1 class="main-title">Shopping List</h1>
+
+    <div class="w-100">
+
+      <div class="container_col-2 between">
+        <h2 class="subtitle">Amount of food items to buy: <span class="primary-text"><%= @foods.length %></span></h2>
+        <h2 class="subtitle">Total value of food needed: <span class="primary-text"><%= "$#{@total_general_price}" %></span></h2>
+      </div>
+
+        <table class="table">
+          <thead class="table-header">
+            <tr>
+              <th>Food</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+            <%= render partial: 'partials/table_general_shopping_list', collection: @foods, as: :ingredient %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</section>

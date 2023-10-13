@@ -1,0 +1,38 @@
+<%= image_tag 'body-bg.png', class: 'headline-image w-100 opacity-6' %>
+<section class="main_page_wrapper w-100">
+  <div class="section-container d-flex flex-column align-items-center">
+    <h1 class="main-title"><%= @recipe.name %></h1>
+    <div class="w-100">
+
+      <div class="container_col-2 between">
+        <h2 class="subtitle">Preparation Time: <%= to_hour(@recipe.preparation_time) %></h2>
+        <%= render partial: 'partials/public_toggle_button', object: @recipe, as: :recipe %>
+      </div>
+
+      <h2 class="subtitle">Cooking Time: <%= to_hour(@recipe.cooking_time) %></h2>
+      <h2 class="subtitle">Description:</h2>
+      <p class="main-text"><%= @recipe.description %></p>
+
+      <% if can? :manage, @recipe %>
+        <div class="container_col-2 between">
+          <%= link_to 'Generate shopping list', general_shopping_list_path, class: 'btn primary-bg primary-text primary-border' %>
+          <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class: 'btn primary-bg primary-text primary-border' %>
+        </div>
+
+        <table class="table">
+          <thead class="table-header">
+            <tr>
+              <th>Food</th>
+              <th>Quantity</th>
+              <th>Value</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+            <%= render partial: 'partials/table_recipe_foods_item', collection: @recipe.recipe_foods.includes(:food), as: :recipe_food %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</section>
