@@ -1,3 +1,35 @@
-<h1>
-  <%= @title %>
-</h1>
+<section class="headline w-100 top-space d-flex justify-center align-items-center">
+  <%= image_tag 'home-bg.jpg', class: 'headline-image w-100 opacity-6' %>
+  <div class="headline-content">
+
+    <p class="headline-greeting dark-text">Hey! Welcome to</p>
+
+    <h1 class="app-title primary-text">easyCOOK</h1>
+
+    <h2 class="subtitle">
+      The space where you can share your recipes and show your love for cooking to the world!
+    </h2>
+
+    <p class="main-text">
+      Cooking is a creative and rewarding art that can be enjoyed by people of all ages and skill levels. It is a way to express your love of food, to experiment with new flavors and textures, and to connect with others over a shared meal.
+    </p>
+
+    <p class="main-text">
+      There are many reasons why people love to cook. Some people enjoy the challenge of creating new dishes, while others find satisfaction in the act of providing for their loved ones. Cooking can also be a relaxing and therapeutic activity, and it is a great way to relieve stress.
+    </p>
+
+    <p class="main-text">
+      Cooking recipes are a valuable resource for anyone who wants to learn new dishes or improve their cooking skills. You can find many recipes here for free. All our users' Recipes provide step-by-step instructions, ingredient lists, and cooking times, making it easy to create delicious meals at home.
+    </p>
+
+    <% if user_signed_in? %>
+      <p class="main-text">
+        Do not wait more! Visit our <%= link_to 'Public Recipes', public_recipes_path, class: 'primary-text' %> page to see all the recipes our users have to offer!
+      </p>
+
+      <p class="main-text">
+        If what you want is to show your cooking love with the world, <%= link_to 'Sign Up', new_user_registration_path, class: 'primary-text' %> on our website and start sharing your recipes!
+      </p>
+    <% end %>
+  </div>
+</section>

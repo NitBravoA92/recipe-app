@@ -1,15 +1,23 @@
-<div class="recipes-container">
-	<h1>Recipes List</h1>
-	<%= link_to 'Add Recipe', new_recipe_path, class: 'Add-recipe' %>
-	<% @recipes.each do |recipe| %>
-		<div class="recipes">
-			<div class="recipes-title">
-				<%= link_to recipe_path(recipe), class: 'recipes-links' do %>
-					<h2><%= recipe.name %></h2>
-				<% end %>
-				<%= link_to 'Remove', recipe_path(recipe), data: { turbo_method: :delete }, class: 'Remove-recipe' %>
-			</div>
-			<p><%= recipe.description.truncate(100) %></p>
+<%= image_tag 'body-bg.png', class: 'headline-image w-100 opacity-6' %>
+<section class="main_page_wrapper w-100">
+	<div class="recipes-container d-flex flex-column align-items-center justify-center">
+
+		<h1 class="main-title">Recipes List</h1>
+
+		<div class="button-wrapper d-flex align-items-center">
+			<%= link_to 'Add Recipe', new_recipe_path, class: 'btn primary-bg primary-text primary-border' %>
 		</div>
-	<% end %>
-</div>
+
+		<% @recipes.each do |recipe| %>
+			<div class="recipes">
+				<div class="recipes-title d-flex flex-column align-items-center">
+					<%= link_to recipe_path(recipe), class: 'dark-text' do %>
+						<h2><%= recipe.name %></h2>
+					<% end %>
+					<%= link_to 'Remove', recipe_path(recipe), data: { turbo_method: :delete }, class: 'btn danger-bg danger-text danger-border' %>
+				</div>
+				<p><%= recipe.description.truncate(100) %></p>
+			</div>
+		<% end %>
+	</div>
+</section>

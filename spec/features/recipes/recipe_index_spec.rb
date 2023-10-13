@@ -5,10 +5,9 @@ RSpec.describe 'Recipe', type: :feature do
     # logged in before run the tests
     before do
       user = FactoryBot.create(:user)
-      FactoryBot.create(:recipe, user:)
+      @recipe = FactoryBot.create(:recipe, user:)
       login_as(user)
     end
-    let(:recipe) { create(:recipe) }
 
     it 'should display the title of the page' do
       visit recipes_path
@@ -17,13 +16,14 @@ RSpec.describe 'Recipe', type: :feature do
 
     it 'should display the add Recipe button' do
       visit recipes_path
-      expect(page).to have_selector('.Add-recipe', text: 'Add Recipe')
+      expect(page).to have_selector('.btn', text: 'Add Recipe')
     end
 
     it 'should display the recipe name' do
       visit recipes_path
       within('.recipes') do
-        expect(page).to have_selector('.recipes-links', text: 'Cookies')
+        expect(page).to have_selector('.recipes-title')
+        expect(page).to have_content 'Cookie'
       end
     end
 
@@ -38,7 +38,7 @@ RSpec.describe 'Recipe', type: :feature do
     it 'should display the remove button' do
       visit recipes_path
       within('.recipes') do
-        expect(page).to have_selector('.Remove-recipe', text: 'Remove')
+        expect(page).to have_selector('.danger-bg', text: 'Remove')
       end
     end
 
@@ -48,11 +48,11 @@ RSpec.describe 'Recipe', type: :feature do
       expect(page).to have_current_path(new_recipe_path)
     end
 
-    #     it "Clicking on the recipe's name should redirect to the recipe details page" do
-    #     	visit recipes_path
-    #     	click_link 'Cookies'
-    #     	expect(page).to have_current_path(recipe_path(@recipe))
-    #     end
+    it "Clicking on the recipe's name should redirect to the recipe details page" do
+      visit recipes_path
+      click_link 'Cookies'
+      expect(page).to have_current_path(recipe_path(@recipe))
+    end
 
     it "Clicking on the 'Remove' button should delete the recipe" do
       visit recipes_path

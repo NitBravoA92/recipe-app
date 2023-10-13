@@ -1,24 +1,27 @@
-<div class="section-container">
+<%= image_tag 'body-bg.png', class: 'headline-image w-100 opacity-6' %>
+<section class="main_page_wrapper w-100">
+  <div class="section-container d-flex flex-column align-items-center">
 
-  <h1 class="main-title">Foods List</h1>
+    <h1 class="main-title">Foods List</h1>
 
-  <div class="page-content">
-    <div class="button-wrapper">
-      <%= link_to 'Add Food', new_food_path, class: 'action-button' %>
+    <div class="w-100">
+      <div class="button-wrapper d-flex align-items-center">
+        <%= link_to 'Add Food', new_food_path, class: 'btn primary-bg primary-text primary-border' %>
+      </div>
+      <table class="table">
+        <thead class="table-header">
+          <tr>
+            <th>Food</th>
+            <th>Measurement unit</th>
+            <th>Unit price</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          <%= render partial: 'partials/table_food_item', collection: @foods, as: :food %>
+        </tbody>
+      </table>
     </div>
-    <table class="table">
-      <thead class="table-header">
-        <tr>
-          <th>Food</th>
-          <th>Measurement unit</th>
-          <th>Unit price</th>
-          <th>Quantity</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody class="table-body">
-        <%= render partial: 'partials/table_food_item', collection: @foods, as: :food %>
-      </tbody>
-    </table>
   </div>
-</div>
+</section>
