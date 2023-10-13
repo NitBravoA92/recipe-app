@@ -1,26 +1,30 @@
 <a id="readme-top"></a>
 
+<div align="center">
+  <h1><b>Recipe App | Ruby on Rails</b></h1>
+</div>
+
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-    - [🛠 Built With](#built-with)
-        - [Tech Stack](#tech-stack)
-        - [Key Features](#key-features)
-- [💻 Getting Started](#getting-started)
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Recipe App ](#-recipe-app-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
-    - [Install](#install)
     - [Usage](#usage)
+    - [Install](#install)
     - [Run tests](#run-tests)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
-- [📝 License](#license)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
 
 <!-- PROJECT DESCRIPTION -->
