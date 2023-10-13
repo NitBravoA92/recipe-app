@@ -18,8 +18,8 @@ describe 'Visit the public_recipes page', type: :feature do
   it 'should display the public recipes' do
     expect(page).to have_selector('.recipes')
 
-    expect(page).to have_content 'Cookie'
-    expect(page).to have_content 'By: Gerard'
+    expect(page).to have_content 'Recipe test'
+    expect(page).to have_content 'By: Frank'
     expect(page).to have_content 'Total food items: 0'
     expect(page).to have_content 'Total price: $0'
   end
