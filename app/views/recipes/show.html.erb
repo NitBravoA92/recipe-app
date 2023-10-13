@@ -13,14 +13,12 @@
       <h2 class="subtitle">Description:</h2>
       <p class="main-text"><%= @recipe.description %></p>
 
-      <div class="container_col-2 between">
-        <%= link_to 'Generate shopping list', general_shopping_list_path, class: 'btn primary-bg primary-text primary-border' %>
-        <% if can? :manage, @recipe %>
-          <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class: 'btn primary-bg primary-text primary-border' %>
-        <% end %>
-      </div>
-
       <% if can? :manage, @recipe %>
+        <div class="container_col-2 between">
+          <%= link_to 'Generate shopping list', general_shopping_list_path, class: 'btn primary-bg primary-text primary-border' %>
+          <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class: 'btn primary-bg primary-text primary-border' %>
+        </div>
+
         <table class="table">
           <thead class="table-header">
             <tr>
