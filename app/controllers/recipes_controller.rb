@@ -32,7 +32,6 @@ class RecipesController < ApplicationController
     recipe = Recipe.find(params[:id])
     status = recipe.public ? false : true
     result = recipe.update(public: status)
-    flash[:notice] = 'The Recipe status was updated!' if result
     redirect_to recipe_path(recipe)
   end
 
