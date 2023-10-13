@@ -42,7 +42,7 @@
           </tr>
         </thead>
         <tbody class="table-body">
-          <%= render partial: 'partials/table_recipe_foods_item', collection: @recipe.recipe_foods, as: :recipe_food %>
+          <%= render partial: 'partials/table_recipe_foods_item', collection: @recipe.recipe_foods.includes(:food), as: :recipe_food %>
         </tbody>
       </table>
     <% end %>
