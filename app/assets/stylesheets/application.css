@@ -362,7 +362,7 @@ main {
   background-color: var(--danger-color);
 }
 
-.notice.active, 
+.notice.active,
 .alert.active {
   opacity: 1;
 }

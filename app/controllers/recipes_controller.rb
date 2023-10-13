@@ -31,7 +31,7 @@ class RecipesController < ApplicationController
   def update_status
     recipe = Recipe.find(params[:id])
     status = recipe.public ? false : true
-    result = recipe.update(public: status)
+    recipe.update(public: status)
     redirect_to recipe_path(recipe)
   end
 

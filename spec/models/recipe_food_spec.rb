@@ -48,12 +48,12 @@ RSpec.describe RecipeFood, type: :model do
 
   describe 'recipe food methods' do
     before :each do
-      id = 100874
+      id = 100_874
       email = "user_recipe_foods_model#{id}@mailrecipefoods.com"
       user = FactoryBot.create(:user, id:, email:)
-      recipe = create(:recipe, user: user)
-      food = create(:food, user: user)
-      @recipe_food = RecipeFood.create(food: food, recipe: recipe, quantity: 1)
+      recipe = create(:recipe, user:)
+      food = create(:food, user:)
+      @recipe_food = RecipeFood.create(food:, recipe:, quantity: 1)
     end
 
     it 'the total_price method should return the total cost of a ingredient in the recipe' do
