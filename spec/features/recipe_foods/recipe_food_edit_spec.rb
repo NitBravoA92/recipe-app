@@ -4,7 +4,7 @@ describe "Visit the edit page of 'recipe foods'", type: :feature do
   # logged in before run the tests
   before do
     id = rand(5000..10_000)
-    mail = "frank_test#{id}@example.com"
+    mail = "james_test_edit#{id}@example.com"
     user = User.create(id: id, name: 'James test', email: mail, password: '123456password', confirmed_at: Time.now)
 
     @recipe = Recipe.create(user: user, name: 'Recipe for test', preparation_time: 120, cooking_time: 90, description: 'Test edit', public: true)
