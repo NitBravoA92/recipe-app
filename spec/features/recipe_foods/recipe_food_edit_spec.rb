@@ -5,13 +5,14 @@ describe "Visit the edit page of 'recipe foods'", type: :feature do
   before do
     id = rand(5000..10_000)
     mail = "james_test_edit#{id}@example.com"
-    user = User.create(id: id, name: 'James test', email: mail, password: '123456password', confirmed_at: Time.now)
+    user = User.create(id:, name: 'James test', email: mail, password: '123456password', confirmed_at: Time.now)
 
-    @recipe = Recipe.create(user: user, name: 'Recipe for test', preparation_time: 120, cooking_time: 90, description: 'Test edit', public: true)
+    @recipe = Recipe.create(user:, name: 'Recipe for test', preparation_time: 120, cooking_time: 90,
+                            description: 'Test edit', public: true)
 
-    food = Food.create(user: user, name: 'Lemon', measurement_unit: 'grams', price: 2.05, quantity: 4)
+    food = Food.create(user:, name: 'Lemon', measurement_unit: 'grams', price: 2.05, quantity: 4)
 
-    recipe_food = RecipeFood.create(recipe: @recipe, food: food, quantity: 1)
+    recipe_food = RecipeFood.create(recipe: @recipe, food:, quantity: 1)
 
     login_as(user)
     visit edit_recipe_recipe_food_path(@recipe, recipe_food)

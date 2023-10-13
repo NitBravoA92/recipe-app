@@ -1,11 +1,13 @@
 require 'rails_helper'
 
-describe "Visit the public_recipes page", type: :feature do
+describe 'Visit the public_recipes page', type: :feature do
   let(:recipe) { create(:recipe) }
 
   before do
-    user = User.create(id: 767765, name: 'Frank', email: 'frank_1@example.com', password: '123456password', confirmed_at: Time.now)
-    @recipe = Recipe.create(user: user, name: 'Recipe test', preparation_time: 50, cooking_time: 40, description: 'Test', public: true)
+    user = User.create(id: 767_765, name: 'Frank', email: 'frank_1@example.com', password: '123456password',
+                       confirmed_at: Time.now)
+    @recipe = Recipe.create(user:, name: 'Recipe test', preparation_time: 50, cooking_time: 40,
+                            description: 'Test', public: true)
     visit public_recipes_path
   end
 
@@ -13,7 +15,7 @@ describe "Visit the public_recipes page", type: :feature do
     expect(page).to have_content 'Public Recipes'
   end
 
-  it "should display the public recipes" do
+  it 'should display the public recipes' do
     expect(page).to have_selector('.recipes')
 
     expect(page).to have_content 'Cookie'

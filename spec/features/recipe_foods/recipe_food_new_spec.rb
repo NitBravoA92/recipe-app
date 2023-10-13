@@ -5,11 +5,12 @@ describe "Visit the new page of 'recipe foods'", type: :feature do
   before do
     id = rand(5000..10_000)
     mail = "frank_test_for_new#{id}@example.com"
-    user = User.create(id: id, name: 'Frank test', email: mail, password: '123456password', confirmed_at: Time.now)
+    user = User.create(id:, name: 'Frank test', email: mail, password: '123456password', confirmed_at: Time.now)
 
-    @recipe = Recipe.create(user: user, name: 'Recipe for test', preparation_time: 120, cooking_time: 90, description: 'Test 2', public: true)
+    @recipe = Recipe.create(user:, name: 'Recipe for test', preparation_time: 120, cooking_time: 90,
+                            description: 'Test 2', public: true)
 
-    food = Food.create(user: user, name: 'Chicken', measurement_unit: 'grams', price: 2.10, quantity: 2)
+    Food.create(user:, name: 'Chicken', measurement_unit: 'grams', price: 2.10, quantity: 2)
 
     login_as(user)
     visit new_recipe_recipe_food_path(@recipe)

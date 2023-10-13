@@ -5,7 +5,7 @@ describe "Visit the general_shopping_list page of 'recipe foods'", type: :featur
   before do
     id = rand(10_000..15_000)
     mail = "james_test_shopping_list#{id}@example.com"
-    user = User.create(id: id, name: 'James test', email: mail, password: '123456password', confirmed_at: Time.now)
+    user = User.create(id:, name: 'James test', email: mail, password: '123456password', confirmed_at: Time.now)
 
     login_as(user)
     visit general_shopping_list_path
@@ -23,7 +23,7 @@ describe "Visit the general_shopping_list page of 'recipe foods'", type: :featur
     expect(page).to have_content 'Total value of food needed: $0'
   end
 
-  it "should display the foods table where all missing foods are listed" do
+  it 'should display the foods table where all missing foods are listed' do
     expect(page).to have_selector('table')
 
     expect(page).to have_content 'Food'
