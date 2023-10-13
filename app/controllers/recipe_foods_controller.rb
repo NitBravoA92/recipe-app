@@ -3,7 +3,7 @@ class RecipeFoodsController < ApplicationController
   before_action :foods_by_recipe, except: %i[index general_shopping_list]
 
   def index
-    @recipes = Recipe.includes(:recipe_foods, :user).where(public: true).order(created_at: :desc)
+    @recipes = Recipe.includes(:user).where(public: true).order(created_at: :desc)
   end
 
   def new
