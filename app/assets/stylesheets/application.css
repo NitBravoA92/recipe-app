@@ -205,7 +205,7 @@ nav a:hover {
   position: relative;
 }
 
-.home-headline-image {
+.headline-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -240,12 +240,19 @@ nav a:hover {
   padding-top: 12rem;
 }
 
+.opacity-6 {
+  opacity: 0.6;
+}
+
 main {
+  position: relative;
   min-height: 100vh;
 }
 
 .main_page_wrapper {
-  padding: 1rem;
+  position: relative;
+  z-index: 1;
+  padding: 11rem 1rem 2rem;
 }
 
 .container_col-2 {
@@ -656,7 +663,7 @@ main {
 
   .main_page_wrapper {
     max-width: 95%;
-    padding: 3rem;
+    padding-top: 11rem;
   }
 
   .form_container {

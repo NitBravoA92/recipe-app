@@ -1,20 +1,23 @@
-<div class="recipes-container d-flex flex-column align-items-center justify-center">
+<%= image_tag 'body-bg.png', class: 'headline-image w-100 opacity-6' %>
+<section class="main_page_wrapper w-100">
+	<div class="recipes-container d-flex flex-column align-items-center justify-center">
 
-	<h1 class="main-title">Public Recipes</h1>
+		<h1 class="main-title">Public Recipes</h1>
 
-	<% @recipes.each do |recipe| %>
-		<div class="recipes">
-			<div class="recipes-title d-flex flex-column align-items-center">
-				<%= link_to recipe_path(recipe), class: 'dark-text' do %>
-					<h2><%= recipe.name %></h2>
-				<% end %>
-				<p>By: <%= recipe.user.name %></p>
+		<% @recipes.each do |recipe| %>
+			<div class="recipes">
+				<div class="recipes-title d-flex flex-column align-items-center">
+					<%= link_to recipe_path(recipe), class: 'dark-text' do %>
+						<h2><%= recipe.name %></h2>
+					<% end %>
+					<p>By: <%= recipe.user.name %></p>
+				</div>
+				<div class="recipes-items-price">
+					<p>Total food items: <%= recipe.count_ingredients %></p>
+					<p>Total price: $<%= recipe.total_price %></p>
+				</div>
 			</div>
-			<div class="recipes-items-price">
-				<p>Total food items: <%= recipe.count_ingredients %></p>
-				<p>Total price: $<%= recipe.total_price %></p>
-			</div>
-		</div>
-	<% end %>
+		<% end %>
 
-</div>
+	</div>
+</section>
