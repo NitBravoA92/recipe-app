@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.includes(:recipe_foods).find(params[:id])
+    @recipe = Recipe.find(params[:id])
     if can? :read, @recipe
       render :show
     else
@@ -31,8 +31,7 @@ class RecipesController < ApplicationController
   def update_status
     recipe = Recipe.find(params[:id])
     status = recipe.public ? false : true
-    result = recipe.update(public: status)
-    flash[:notice] = 'The Recipe status was updated!' if result
+    recipe.update(public: status)
     redirect_to recipe_path(recipe)
   end
 

@@ -2,7 +2,7 @@ class Recipe < ApplicationRecord
   # before_validation :convert_hours_to_minutes
   belongs_to :user
   has_and_belongs_to_many :foods, join_table: 'recipe_foods'
-  has_many :recipe_foods
+  has_many :recipe_foods, dependent: :destroy
 
   # Validations.
   validates :name, :description, presence: true
@@ -12,7 +12,7 @@ class Recipe < ApplicationRecord
   validates :public, inclusion: { in: [true, false] }
 
   def total_price
-    recipe_foods.sum { |recipe_food| recipe_food.food.price * recipe_food.quantity }
+    recipe_foods.includes(:food).sum { |recipe_food| recipe_food.food.price * recipe_food.quantity }
   end
 
   def count_ingredients

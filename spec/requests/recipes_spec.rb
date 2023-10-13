@@ -62,7 +62,10 @@ RSpec.describe 'Recipes', type: :request do
   # Request to /recipes/:id
   describe 'GET /show' do
     before do
-      user = FactoryBot.create(:user)
+      id = rand(200_000...400_000)
+      email = "user_recipes_show_request#{id}@mailrecipesrequests.com"
+      user = FactoryBot.create(:user, id:, email:)
+
       @recipe = FactoryBot.create(:recipe, user:)
       sign_in user
       get recipe_path(@recipe)

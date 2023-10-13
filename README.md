@@ -1,43 +1,37 @@
 <a id="readme-top"></a>
 
+<div align="center">
+  <h1><b>Recipe App | Ruby on Rails</b></h1>
+</div>
+
 <!-- TABLE OF CONTENTS -->
 
-<details>
-  <summary><h1>📗 Table of Contents</h1></summary>
-  <ul>
-    <li><a href="#about-project">📖 About the Project</a>
-      <ul>
-        <li><a href="#built-with">🛠 Built With</a></li>
-        <li><a href="#tech-stack">Tech Stack</a></li>
-        <li><a href="#key-features">Key Features</a></li>
-      </ul>
-    </li>
-    <li><a href="#live-demo">🚀 Live Demo</a></li>
-    <li><a href="#getting-started">💻 Getting Started</a>
-      <ul>
-        <li><a href="#setup">Setup</a></li>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#install">Install</a></li>
-        <li><a href="#usage">Usage</a></li>
-        <li><a href="#run-tests">Run tests</a></li>
-        <li><a href="#deployment">Deployment</a></li>
-      </ul>
-    </li>
-    <li><a href="#authors">👥 Authors</a></li>
-    <li><a href="#future-features">🔭 Future Features</a></li>
-    <li><a href="#contributing">🤝 Contributing</a></li>
-    <li><a href="#support">⭐️ Show your support</a></li>
-    <li><a href="#acknowledgements">🙏 Acknowledgements</a></li>
-    <li><a href="#license">📝 License</a></li>
-  </ul>
-</details>
+# 📗 Table of Contents
+
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Recipe App ](#-recipe-app-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Usage](#usage)
+    - [Install](#install)
+    - [Run tests](#run-tests)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
 
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 Recipe App <a id="about-project"></a>
 
-The **Recipe App** is a web application build on Ruby on Rails and TailwindCSS that allows you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe.
+The **Recipe App** is a web application build on Ruby on Rails that allows you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe.
 
 ## 🛠 Built With <a id="built-with"></a>
 
@@ -46,7 +40,7 @@ The **Recipe App** is a web application build on Ruby on Rails and TailwindCSS t
 <details>
   <summary>Back-end</summary>
   <ul>
-    <li><a href="https://guides.rubyonrails.org/">Ruby on Rails</a></li>
+    <li><a href="https://guides.rubyonrails.org/">Ruby on Rails (v 7.0.8)</a></li>
     <li><a href="https://www.postgresql.org/docs/">PostgreSQL</a></li>
   </ul>
 </details>
@@ -55,8 +49,9 @@ The **Recipe App** is a web application build on Ruby on Rails and TailwindCSS t
   <summary>Front-end</summary>
   <ul>
     <li><a href="https://www.w3schools.com/html/">HTML5</a></li>
-    <li><a href="https://www.w3schools.com/css/">CSS</a></li>
+    <li><a href="https://www.w3schools.com/css/">CSS3</a></li>
     <li><a href="https://www.rubyguides.com/2018/11/ruby-erb-haml-slim/">ERB template</a></li>
+    <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript">JavaScript</a></li>
   </ul>
 </details>
 
@@ -66,11 +61,10 @@ The **Recipe App** is a web application build on Ruby on Rails and TailwindCSS t
 * Use of Rails framework.
 * MVC architecture.
 * Save and retrieve information from a PostgreSQL database.
-* Devise gem.
-* Capybara tests with RSpec.
-* CanCanCan gem.
-* Rswag gem and API documentation.
-* RESTful API.
+* Log in and registration with <a href="https://github.com/heartcombo/devise">Devise gem</a>.
+* Integration and unit tests with <a href="https://github.com/teamcapybara/capybara">Capybara</a> and <a href="https://github.com/rspec/rspec-rails">RSpec</a>.
+* Authorization with <a href="https://github.com/CanCanCommunity/cancancan">CanCanCan gem</a>.
+* Find and solve N + 1 problems with <a href="https://github.com/flyerhzm/bullet">Bullet gem</a>.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -82,7 +76,8 @@ The **Recipe App** is a web application build on Ruby on Rails and TailwindCSS t
 ### Prerequisites
 In order to run this project you need to have:
 
-- Installed Ruby and Rails.
+- Installed Ruby (v 3.2.2).
+- Installed PostgreSQL.
 - If you're using Windows, have installed WSL.
 - If you're using MacOS, an option is using UTM.
 
@@ -108,14 +103,18 @@ To install all the ruby gems, use the following command:
 ```
 bundle install
 ```
-After installing the gems, run this commando to create and migrate a database:
+To install the npm dependencies, use the following command:
+```
+npm install
+```
+After installing the gems, run this command to create and migrate a database:
 ```
 rails db:create db:migrate
 ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Run tests
-To run the RSpec unit tests, use the following command:
+To run the RSpec unit and integration tests, use the following command:
 ```
 rspec
 ```
@@ -131,7 +130,7 @@ rspec
 - GitHub: [Nitcelis Bravo](https://github.com/NitBravoA92)
 - Twitter: [@softwareDevOne](https://twitter.com/softwareDevOne)
 - LinkedIn: [Nitcelis Bravo Alcala](https://www.linkedin.com/in/nitcelis-bravo-alcala-b65340158)
-- 
+
 👤 **Manuel Sánchez**
 
 - GitHub: [@Luffytaro22](https://github.com/Luffytaro22)
@@ -143,7 +142,10 @@ rspec
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a id="future-features"></a>
-
+- [ ] Allow the users to follow each other.
+- [ ] Implement a like button to the recipes.
+- [ ] Generate API endpoints.
+- [ ] Deploy the application.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
