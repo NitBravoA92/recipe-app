@@ -11,8 +11,13 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <p class="notice active"><%= notice %></p>
+    <% end %>
+
+    <% if alert %>
+      <p class="alert active"><%= alert %></p>
+    <% end %>
 
     <%= render partial: 'partials/navbar' %>
 

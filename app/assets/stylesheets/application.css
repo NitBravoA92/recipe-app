@@ -339,9 +339,19 @@ main {
 
 .notice,
 .alert {
-  width: 100%;
+  position: fixed;
+  top: 110px;
+  left: 5%;
+  z-index: 2000;
+  padding: 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  width: 90%;
+  border-radius: 0.7rem;
   text-align: center;
   color: var(--light-color);
+  opacity: 0;
+  transition: 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .notice {
@@ -350,6 +360,11 @@ main {
 
 .alert {
   background-color: var(--danger-color);
+}
+
+.notice.active, 
+.alert.active {
+  opacity: 1;
 }
 
 .section-container {
