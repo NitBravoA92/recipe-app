@@ -25,6 +25,4 @@ class Food < ApplicationRecord
   def general_price
     total_food * price
   end
-
-  # Method to calculate the total amount of price of the ingredients.
 end
