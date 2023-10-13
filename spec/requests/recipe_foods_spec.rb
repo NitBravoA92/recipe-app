@@ -28,4 +28,33 @@ RSpec.describe 'RecipeFoods', type: :request do
       expect(response.body).to include(expected_result_recipe)
     end
   end
+
+  # Request to recipe/:recipe_id/recipe_foods/new
+  describe 'GET /new' do
+    before do
+      user = FactoryBot.create(:user)
+      recipe = FactoryBot.create(:recipe, user:)
+      sign_in user
+      get new_recipe_recipe_food_path(recipe)
+    end
+
+    # test if the response status was correct (status 200)
+    it 'returns http success' do
+      expect(response).to have_http_status(:success)
+    end
+
+    # test if a correct template was rendered.
+    it 'renders the new template' do
+      expect(response).to render_template(:new)
+    end
+
+    # test If the response body includes correct content.
+    it 'renders the new template with correct content' do
+      expected_result = 'Add an ingredient'
+      expect(response.body).to include(expected_result)
+
+      expected_result_field = 'Select your ingredient'
+      expect(response.body).to include(expected_result_field)
+    end
+  end
 end
