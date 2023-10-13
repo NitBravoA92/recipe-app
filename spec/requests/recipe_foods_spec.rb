@@ -87,4 +87,29 @@ RSpec.describe 'RecipeFoods', type: :request do
       expect(response.body).to include(expected_result_field)
     end
   end
+
+  # Request to /general_shopping_list
+  describe 'GET /general_shopping_list' do
+    before do
+      user = FactoryBot.create(:user)
+      sign_in user
+      get general_shopping_list_path
+    end
+
+    # test if the response status was correct (status 200)
+    it 'returns http success' do
+      expect(response).to have_http_status(:success)
+    end
+
+    # test if a correct template was rendered.
+    it 'renders the new template' do
+      expect(response).to render_template(:general_shopping_list)
+    end
+
+    # test If the response body includes correct content.
+    it 'renders the general_shopping_list template with correct content' do
+      expected_result = 'Shopping List'
+      expect(response.body).to include(expected_result)
+    end
+  end
 end
