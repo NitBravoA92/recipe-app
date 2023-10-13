@@ -3,7 +3,9 @@ require 'rails_helper'
 describe "Visit the index page of 'foods'", type: :feature do
   # logged in before run the tests
   before do
-    user = FactoryBot.create(:user)
+    id = rand(20_000..30_000)
+    email = "user_foods_index#{id}@mailfoods.com"
+    user = FactoryBot.create(:user, id:, email:)
     FactoryBot.create(:food, user:)
     login_as(user)
   end
