@@ -85,4 +85,4 @@ gem 'devise'
 
 gem 'cancancan'
 
-gem 'letter_opener'
+gem 'sendgrid-ruby'
