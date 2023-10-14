@@ -5,13 +5,23 @@ class CustomDeviseMailer < Devise::Mailer
   
   def confirmation_instructions(record, token, opts={})
     @token = token
-    mail = Mail.new
-    mail.from = Email.new(email: 'manuel.sanchez3.1416@gmail.com')
-    personalization = Personalization.new
-    personalization.add_to(Email.new(email: record.email))
-    personalization.add_substitution(Substitution.new(key: '-token-', value: @token))
+    mail = SendGrid::Mail.new
+    mail.from = SendGrid::Email.new(email: 'manuel.sanchez3.1416@gmail.com')
+    personalization = SendGrid::Personalization.new
+    personalization.add_to(SendGrid::Email.new(email: record.email))
     mail.add_personalization(personalization)
-    mail.template_id = 'd-fdcc46dc440b4aeca775353d669be70e'
+    mail.subject = 'Confirm your account'
+    content = "
+    <p>Welcome #{record.email}!</p>
+
+    <p>You can confirm your account email through the link below:</p>
+
+    <p><a href='#{user_confirmation_url(record, confirmation_token: @token, format: :html)}'>Confirm my account</a></p>
+    "
+
+    # Añadir el contenido al correo electrónico
+    mail.add_content(SendGrid::Content.new(type: 'text/html', value: content))
+
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
     begin
       response = sg.client.mail._('send').post(request_body: mail.to_json)
@@ -21,7 +31,6 @@ class CustomDeviseMailer < Devise::Mailer
   end
 
   def reset_password_instructions(record, token, opts={})
-    puts "Se está enviando #{record.email} y #{token}"
     @token = token
     mail = SendGrid::Mail.new
     mail.from = SendGrid::Email.new(email: 'manuel.sanchez3.1416@gmail.com')
