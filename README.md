@@ -68,6 +68,15 @@ The **Recipe App** is a web application build on Ruby on Rails that allows you t
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- LIVE DEMO -->
+
+### 🚀 Live Demo <a name="live-demo"></a>
+
+To see the application working live, you can click on the following link that contains the demo version:
+
+- [easyCOOK - Live Demo](https://recipe-app-zxdn.onrender.com/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
